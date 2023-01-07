@@ -29,9 +29,7 @@ class _HomepageState extends State<Homepage> {
         ),
       ),
       body: Container(
-        decoration: const BoxDecoration(
-            color: Colors.black87
-        ),
+        decoration: const BoxDecoration(color: Colors.black87),
         child: Center(
           child: Container(
             decoration: const BoxDecoration(

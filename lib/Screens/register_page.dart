@@ -1,20 +1,21 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 
-class LoginWidget extends StatefulWidget {
+class RegisterWidget extends StatefulWidget {
   final Function()? tap;
 
-  const LoginWidget({Key? key, required this.tap}) : super(key: key);
+  const RegisterWidget({Key? key, required this.tap}) : super(key: key);
 
   @override
-  State<LoginWidget> createState() => _LoginWidgetState();
+  State<RegisterWidget> createState() => _RegisterWidgetState();
 }
 
-class _LoginWidgetState extends State<LoginWidget> {
+class _RegisterWidgetState extends State<RegisterWidget> {
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final confirmPasswordController = TextEditingController();
 
-  void signIn() async {
+  void signUserUp() async {
     showDialog(
       context: context,
       builder: (context) {
@@ -24,34 +25,27 @@ class _LoginWidgetState extends State<LoginWidget> {
       },
     );
 
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
+    if (passwordController.text == confirmPasswordController.text) {
+      await FirebaseAuth.instance.createUserWithEmailAndPassword(
           email: emailController.text, password: passwordController.text);
+    } else {
       Navigator.pop(context);
-    } on FirebaseAuthException catch (x) {
-      Navigator.pop(context);
-      if (x.code == 'user-not-found') {
-        showErrormessage();
-      } else if (x.code == 'wrong-password') {
-        showErrormessage();
-      }
-    }
-  }
-
-  void showErrormessage() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            backgroundColor: Colors.grey,
-            title: Center(
-              child: Text(
-                'Invalid Credentials',
-                style: TextStyle(color: Colors.white),
+      showDialog(
+          context: context,
+          builder: (context) {
+            return const AlertDialog(
+              backgroundColor: Colors.grey,
+              title: Center(
+                child: Text(
+                  'Password not a match',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
-            ),
-          );
-        });
+            );
+          });
+
+    }
+    Navigator.pop(context);
   }
 
   @override
@@ -68,15 +62,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                     child: Column(children: [
                       const Icon(
                         Icons.gamepad_rounded,
-                        size: 150,
+                        size: 80,
                         color: Colors.lightGreen,
                       ),
-                      const SizedBox(height: 60),
+                      const SizedBox(height: 30),
                       const Text(
-                        'Welcome!',
+                        'Sign Up!',
                         style: TextStyle(
                             fontWeight: FontWeight.bold,
-                            fontSize: 40,
+                            fontSize: 30,
                             color: Colors.white),
                       ),
                       const SizedBox(height: 20),
@@ -118,6 +112,26 @@ class _LoginWidgetState extends State<LoginWidget> {
                           ),
                         ),
                       ),
+                      const SizedBox(height: 10),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(horizontal: 25.0),
+                        child: Container(
+                          decoration: BoxDecoration(
+                              color: Colors.grey[200],
+                              border: Border.all(color: Colors.white),
+                              borderRadius: BorderRadius.circular(50)),
+                          child: Padding(
+                            padding: const EdgeInsets.only(left: 15.0),
+                            child: TextFormField(
+                              controller: confirmPasswordController,
+                              textInputAction: TextInputAction.done,
+                              decoration: const InputDecoration(
+                                  labelText: 'Confirm Password'),
+                              obscureText: true,
+                            ),
+                          ),
+                        ),
+                      ),
                       const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 110.0),
@@ -128,15 +142,16 @@ class _LoginWidgetState extends State<LoginWidget> {
                               shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(20))),
                           icon: const Icon(
-                            Icons.login,
+                            Icons.app_registration,
                             size: 30,
                             color: Colors.black54,
                           ),
                           label: const Text(
-                            'Sign in',
-                            style: TextStyle(fontSize: 15, color: Colors.black54),
+                            'Sign up',
+                            style:
+                                TextStyle(fontSize: 15, color: Colors.black54),
                           ),
-                          onPressed: signIn,
+                          onPressed: signUserUp,
                         ),
                       ),
                       const SizedBox(height: 10),
@@ -144,13 +159,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           const Text(
-                            'Not a Member?',
+                            'Already have an Account?',
                             style: TextStyle(fontSize: 17, color: Colors.white),
                           ),
                           GestureDetector(
                             onTap: widget.tap,
                             child: const Text(
-                              ' Sign Up',
+                              ' Log In',
                               style: TextStyle(
                                   color: Colors.lightBlueAccent,
                                   fontSize: 17,
