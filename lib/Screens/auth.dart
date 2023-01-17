@@ -1,55 +1,54 @@
+import 'package:final_project_mobprog/Models/api_response.dart';
 import 'package:final_project_mobprog/Screens/homepage.dart';
 import 'package:final_project_mobprog/Screens/login_screen.dart';
-import 'package:final_project_mobprog/Screens/register_page.dart';
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:final_project_mobprog/constant_variables/constants.dart';
+import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:flutter/material.dart';
 
-class Auth extends StatelessWidget {
-  const Auth({super.key});
+class Loading extends StatefulWidget {
+  const Loading({super.key});
+
+  @override
+  _LoadingState createState() => _LoadingState();
+}
+
+class _LoadingState extends State<Loading> {
+
+  void _loadUserInfo() async {
+    String token = await getToken();
+    if(token == ''){
+      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const LoginWidget()), (route) => false);
+    }
+    else {
+      ApiResponse response = await getUserDetail();
+      if (response.error == null){
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const Homepage()), (route) => false);
+      }
+      else if (response.error == unauthorized){
+        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const LoginWidget()), (route) => false);
+      }
+      else {
+        ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+          content: Text('${response.error}'),
+        ));
+      }
+    }
+  }
+
+  @override
+  void initState() {
+    _loadUserInfo();
+    super.initState();
+  }
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: StreamBuilder<User?>(
-        stream: FirebaseAuth.instance.authStateChanges(),
-        builder: (context, snapshot) {
-          if (snapshot.hasData) {
-            return const Homepage();
-          } else {
-            return const LoginRegister();
-          }
-        },
+    return Container(
+      height: MediaQuery.of(context).size.height,
+      color: Colors.white,
+      child: const Center(
+          child: CircularProgressIndicator()
       ),
     );
-  }
-}
-
-class LoginRegister extends StatefulWidget {
-  const LoginRegister({Key? key}) : super(key: key);
-
-  @override
-  State<LoginRegister> createState() => _LoginRegisterState();
-}
-
-class _LoginRegisterState extends State<LoginRegister> {
-  bool showLoginPage = true;
-
-  void switchPage() {
-    setState(() {
-      showLoginPage = !showLoginPage;
-    });
-  }
-
-  @override
-  Widget build(BuildContext context) {
-    if (showLoginPage) {
-      return LoginWidget(
-        tap: switchPage,
-      );
-    } else {
-      return RegisterWidget(
-        tap: switchPage,
-      );
-    }
   }
 }

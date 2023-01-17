@@ -1,64 +1,51 @@
-import 'package:firebase_auth/firebase_auth.dart';
+import 'package:final_project_mobprog/Models/api_response.dart';
+import 'package:final_project_mobprog/Models/models_users.dart';
+import 'package:final_project_mobprog/Screens/homepage.dart';
+import 'package:final_project_mobprog/Screens/register_page.dart';
+import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LoginWidget extends StatefulWidget {
-  final Function()? tap;
-
-  const LoginWidget({Key? key, required this.tap}) : super(key: key);
+  const LoginWidget({Key? key}) : super(key: key);
 
   @override
   State<LoginWidget> createState() => _LoginWidgetState();
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
+  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  bool loading = false;
 
-  void signIn() async {
-    showDialog(
-      context: context,
-      builder: (context) {
-        return const Center(
-          child: CircularProgressIndicator(),
-        );
-      },
-    );
-
-    try {
-      await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: emailController.text, password: passwordController.text);
-      Navigator.pop(context);
-    } on FirebaseAuthException catch (x) {
-      Navigator.pop(context);
-      if (x.code == 'user-not-found') {
-        showErrormessage();
-      } else if (x.code == 'wrong-password') {
-        showErrormessage();
-      }
+  void _loginUser() async {
+    ApiResponse response = await login(emailController.text, passwordController.text);
+    if (response.error == null) {
+      _saveAndRedirectToHome(response.data as User);
+    } else {
+      setState(() {
+        loading = false;
+      });
+      ScaffoldMessenger.of(context)
+          .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
   }
 
-  void showErrormessage() {
-    showDialog(
-        context: context,
-        builder: (context) {
-          return const AlertDialog(
-            backgroundColor: Colors.grey,
-            title: Center(
-              child: Text(
-                'Invalid Credentials',
-                style: TextStyle(color: Colors.white),
-              ),
-            ),
-          );
-        });
+  void _saveAndRedirectToHome(User user) async {
+    SharedPreferences pref = await SharedPreferences.getInstance();
+    await pref.setString('token', user.token ?? '');
+    await pref.setInt('userId', user.id ?? 0);
+    Navigator.of(context).pushAndRemoveUntil(
+        MaterialPageRoute(builder: (context) => const Homepage()), (route) => false);
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
         backgroundColor: Colors.black87,
-        body: SafeArea(
+        body: Form(
+          key: formkey,
           child: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -86,12 +73,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                           decoration: BoxDecoration(
                               color: Colors.grey[200],
                               border: Border.all(color: Colors.white),
-                              borderRadius: BorderRadius.circular(50)),
+                              borderRadius: BorderRadius.circular(5)),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: TextFormField(
+                              keyboardType: TextInputType.emailAddress,
                               controller: emailController,
                               textInputAction: TextInputAction.next,
+                              validator: (val) =>
+                                  val!.isEmpty ? 'Invalid email address' : null,
                               decoration:
                                   const InputDecoration(labelText: 'Email'),
                             ),
@@ -105,11 +95,13 @@ class _LoginWidgetState extends State<LoginWidget> {
                           decoration: BoxDecoration(
                               color: Colors.grey[200],
                               border: Border.all(color: Colors.white),
-                              borderRadius: BorderRadius.circular(50)),
+                              borderRadius: BorderRadius.circular(5)),
                           child: Padding(
                             padding: const EdgeInsets.only(left: 15.0),
                             child: TextFormField(
                               controller: passwordController,
+                              validator: (val) => val!.length < 6
+                                  ? 'Required at least 6 chars' : null,
                               textInputAction: TextInputAction.done,
                               decoration:
                                   const InputDecoration(labelText: 'Password'),
@@ -119,26 +111,37 @@ class _LoginWidgetState extends State<LoginWidget> {
                         ),
                       ),
                       const SizedBox(height: 20),
-                      Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 110.0),
-                        child: ElevatedButton.icon(
-                          style: ElevatedButton.styleFrom(
-                              minimumSize: const Size.fromHeight(50),
-                              backgroundColor: Colors.lightGreen,
-                              shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20))),
-                          icon: const Icon(
-                            Icons.login,
-                            size: 30,
-                            color: Colors.black54,
-                          ),
-                          label: const Text(
-                            'Sign in',
-                            style: TextStyle(fontSize: 15, color: Colors.black54),
-                          ),
-                          onPressed: signIn,
-                        ),
-                      ),
+                      loading
+                          ? const Center(child: CircularProgressIndicator())
+                          : Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 110.0),
+                              child: ElevatedButton.icon(
+                                  style: ElevatedButton.styleFrom(
+                                      minimumSize: const Size.fromHeight(50),
+                                      backgroundColor: Colors.lightGreen,
+                                      shape: RoundedRectangleBorder(
+                                          borderRadius:
+                                              BorderRadius.circular(20))),
+                                  icon: const Icon(
+                                    Icons.login,
+                                    size: 30,
+                                    color: Colors.black54,
+                                  ),
+                                  label: const Text(
+                                    'Sign in',
+                                    style: TextStyle(
+                                        fontSize: 15, color: Colors.black54),
+                                  ),
+                                  onPressed: () {
+                                    if (formkey.currentState!.validate()) {
+                                      setState(() {
+                                        loading = true;
+                                        _loginUser();
+                                      });
+                                    }
+                                  }),
+                            ),
                       const SizedBox(height: 10),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
@@ -148,7 +151,12 @@ class _LoginWidgetState extends State<LoginWidget> {
                             style: TextStyle(fontSize: 17, color: Colors.white),
                           ),
                           GestureDetector(
-                            onTap: widget.tap,
+                            onTap: () {
+                              Navigator.of(context).pushAndRemoveUntil(
+                                  MaterialPageRoute(
+                                      builder: (context) => const RegisterWidget()),
+                                  (route) => false);
+                            },
                             child: const Text(
                               ' Sign Up',
                               style: TextStyle(
