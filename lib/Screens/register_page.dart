@@ -1,7 +1,7 @@
 import 'package:final_project_mobprog/Models/api_response.dart';
 import 'package:final_project_mobprog/Models/models_users.dart';
 import 'package:final_project_mobprog/Screens/home_page.dart';
-import 'package:final_project_mobprog/Screens/login_screen.dart';
+import 'package:final_project_mobprog/Screens/login_page.dart';
 import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -92,7 +92,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       decoration: BoxDecoration(
                           color: Colors.grey[200],
                           border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(5)
+                          borderRadius: BorderRadius.circular(10)
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 15.0),
@@ -119,7 +119,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       decoration: BoxDecoration(
                           color: Colors.grey[200],
                           border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(5)
+                          borderRadius: BorderRadius.circular(10)
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 15.0),

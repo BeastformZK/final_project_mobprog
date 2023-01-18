@@ -1,4 +1,4 @@
-import 'package:final_project_mobprog/Screens/login_screen.dart';
+import 'package:final_project_mobprog/Screens/login_page.dart';
 import 'package:flutter/material.dart';
 
 void main() {

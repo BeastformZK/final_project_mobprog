@@ -43,7 +43,8 @@ class _LoginWidgetState extends State<LoginWidget> {
     await pref.setInt('userId', user.id ?? 0);
     // ignore: use_build_context_synchronously
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const Homepage()
+        MaterialPageRoute(
+            builder: (context) => const Homepage()
         ),
         (route) => false
     );
@@ -87,7 +88,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       decoration: BoxDecoration(
                           color: Colors.grey[200],
                           border: Border.all(color: Colors.white),
-                          borderRadius: BorderRadius.circular(5)
+                          borderRadius: BorderRadius.circular(10)
                       ),
                       child: Padding(
                         padding: const EdgeInsets.only(left: 15.0),
