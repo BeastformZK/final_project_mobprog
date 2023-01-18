@@ -1,6 +1,6 @@
 import 'package:final_project_mobprog/Models/api_response.dart';
 import 'package:final_project_mobprog/Models/models_users.dart';
-import 'package:final_project_mobprog/Screens/homepage.dart';
+import 'package:final_project_mobprog/Screens/home_page.dart';
 import 'package:final_project_mobprog/Screens/register_page.dart';
 import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:flutter/material.dart';
@@ -14,19 +14,22 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
-  final GlobalKey<FormState> formkey = GlobalKey<FormState>();
+  final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
   bool loading = false;
 
+
   void _loginUser() async {
-    ApiResponse response = await login(emailController.text, passwordController.text);
+    ApiResponse response =
+        await login(emailController.text, passwordController.text);
     if (response.error == null) {
       _saveAndRedirectToHome(response.data as User);
     } else {
       setState(() {
         loading = false;
       });
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -36,8 +39,10 @@ class _LoginWidgetState extends State<LoginWidget> {
     SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString('token', user.token ?? '');
     await pref.setInt('userId', user.id ?? 0);
+    // ignore: use_build_context_synchronously
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const Homepage()), (route) => false);
+        MaterialPageRoute(builder: (context) => const Homepage()),
+        (route) => false);
   }
 
   @override
@@ -45,7 +50,7 @@ class _LoginWidgetState extends State<LoginWidget> {
     return Scaffold(
         backgroundColor: Colors.black87,
         body: Form(
-          key: formkey,
+          key: formKey,
           child: Center(
             child: SingleChildScrollView(
               child: Column(
@@ -101,7 +106,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                             child: TextFormField(
                               controller: passwordController,
                               validator: (val) => val!.length < 6
-                                  ? 'Required at least 6 chars' : null,
+                                  ? 'Required at least 6 chars'
+                                  : null,
                               textInputAction: TextInputAction.done,
                               decoration:
                                   const InputDecoration(labelText: 'Password'),
@@ -134,7 +140,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                         fontSize: 15, color: Colors.black54),
                                   ),
                                   onPressed: () {
-                                    if (formkey.currentState!.validate()) {
+                                    if (formKey.currentState!.validate()) {
                                       setState(() {
                                         loading = true;
                                         _loginUser();
@@ -154,7 +160,8 @@ class _LoginWidgetState extends State<LoginWidget> {
                             onTap: () {
                               Navigator.of(context).pushAndRemoveUntil(
                                   MaterialPageRoute(
-                                      builder: (context) => const RegisterWidget()),
+                                      builder: (context) =>
+                                          const RegisterWidget()),
                                   (route) => false);
                             },
                             child: const Text(

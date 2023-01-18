@@ -1,6 +1,6 @@
 import 'package:final_project_mobprog/Models/api_response.dart';
 import 'package:final_project_mobprog/Models/models_users.dart';
-import 'package:final_project_mobprog/Screens/homepage.dart';
+import 'package:final_project_mobprog/Screens/home_page.dart';
 import 'package:final_project_mobprog/Screens/login_screen.dart';
 import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:flutter/material.dart';
@@ -30,6 +30,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
       setState(() {
         loading = !loading;
       });
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -40,6 +41,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     SharedPreferences pref = await SharedPreferences.getInstance();
     await pref.setString('token', user.token ?? '');
     await pref.setInt('userId', user.id ?? 0);
+    // ignore: use_build_context_synchronously
     Navigator.of(context).pushAndRemoveUntil(
         MaterialPageRoute(builder: (context) => const Homepage()),
         (route) => false);

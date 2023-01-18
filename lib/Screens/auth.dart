@@ -1,5 +1,5 @@
 import 'package:final_project_mobprog/Models/api_response.dart';
-import 'package:final_project_mobprog/Screens/homepage.dart';
+import 'package:final_project_mobprog/Screens/home_page.dart';
 import 'package:final_project_mobprog/Screens/login_screen.dart';
 import 'package:final_project_mobprog/constant_variables/constants.dart';
 import 'package:final_project_mobprog/services_app/service_users.dart';
@@ -9,25 +9,32 @@ class Loading extends StatefulWidget {
   const Loading({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _LoadingState createState() => _LoadingState();
 }
 
 class _LoadingState extends State<Loading> {
-
   void _loadUserInfo() async {
     String token = await getToken();
-    if(token == ''){
-      Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const LoginWidget()), (route) => false);
-    }
-    else {
+    if (token == '') {
+      // ignore: use_build_context_synchronously
+      Navigator.of(context).pushAndRemoveUntil(
+          MaterialPageRoute(builder: (context) => const LoginWidget()),
+          (route) => false);
+    } else {
       ApiResponse response = await getUserDetail();
-      if (response.error == null){
-        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const Homepage()), (route) => false);
-      }
-      else if (response.error == unauthorized){
-        Navigator.of(context).pushAndRemoveUntil(MaterialPageRoute(builder: (context)=>const LoginWidget()), (route) => false);
-      }
-      else {
+      if (response.error == null) {
+        // ignore: use_build_context_synchronously
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const Homepage()),
+            (route) => false);
+      } else if (response.error == unauthorized) {
+        // ignore: use_build_context_synchronously
+        Navigator.of(context).pushAndRemoveUntil(
+            MaterialPageRoute(builder: (context) => const LoginWidget()),
+            (route) => false);
+      } else {
+        // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('${response.error}'),
         ));
@@ -46,9 +53,7 @@ class _LoadingState extends State<Loading> {
     return Container(
       height: MediaQuery.of(context).size.height,
       color: Colors.white,
-      child: const Center(
-          child: CircularProgressIndicator()
-      ),
+      child: const Center(child: CircularProgressIndicator()),
     );
   }
 }
