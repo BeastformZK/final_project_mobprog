@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+// Rico
+
 class Homepage extends StatefulWidget {
   const Homepage({Key? key}) : super(key: key);
 
@@ -8,7 +10,6 @@ class Homepage extends StatefulWidget {
 }
 
 class _HomepageState extends State<Homepage> {
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,43 +19,31 @@ class _HomepageState extends State<Homepage> {
           padding: EdgeInsets.zero,
           children: [
             const DrawerHeader(
-              decoration: BoxDecoration(
-                  color: Colors.green
-              ),
-              child:
-              Text('Welcome',
-                style: TextStyle(
-                    fontSize: 20,
-                    fontWeight: FontWeight.bold),
+              decoration: BoxDecoration(color: Colors.green),
+              child: Text(
+                'Welcome',
+                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
             ),
             ListTile(
-              leading:  const Icon(Icons.home),
-              title:  const Text('Home'),
-              onTap: () {
-
-              },
+              leading: const Icon(Icons.home),
+              title: const Text('Home'),
+              onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.account_circle),
-              title:  const Text('Profile'),
-              onTap: () {
-
-              },
+              title: const Text('Profile'),
+              onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.settings),
-              title:  const Text('Settings'),
-              onTap: () {
-
-              },
+              title: const Text('Settings'),
+              onTap: () {},
             ),
             ListTile(
               leading: const Icon(Icons.logout),
-              title:  const Text('Logout'),
-              onTap: () {
-
-              },
+              title: const Text('Logout'),
+              onTap: () {},
             ),
           ],
         ),
@@ -77,12 +66,11 @@ class _HomepageState extends State<Homepage> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(10),
-                      boxShadow: const[
+                      boxShadow: const [
                         BoxShadow(
-                          color: Colors.black38,
-                          offset: Offset(0, 5),
-                          blurRadius: 10
-                      )
+                            color: Colors.black38,
+                            offset: Offset(0, 5),
+                            blurRadius: 10)
                       ],
                     ),
                     child: Column(
@@ -95,9 +83,9 @@ class _HomepageState extends State<Homepage> {
                               topRight: Radius.circular(10),
                             ),
                             image: DecorationImage(
-                                image: NetworkImage('https://www.shutterstock.com/image-vector/infinite-game-pad-logo-icon-260nw-1682151313.jpg'),
-                                fit: BoxFit.contain
-                            ),
+                                image: NetworkImage(
+                                    'https://www.shutterstock.com/image-vector/infinite-game-pad-logo-icon-260nw-1682151313.jpg'),
+                                fit: BoxFit.contain),
                           ),
                         ),
                         Padding(
@@ -107,18 +95,15 @@ class _HomepageState extends State<Homepage> {
                             style: const TextStyle(
                                 fontSize: 20,
                                 fontWeight: FontWeight.bold,
-                                color: Colors.black87
-                            ),
+                                color: Colors.black87),
                           ),
                         ),
                         const Padding(
                           padding: EdgeInsets.all(8.0),
                           child: Text(
                             'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod elit velit, non faucibus libero tristique at. Sed euismod elit velit, non faucibus libero tristique at.',
-                            style: TextStyle(
-                                fontSize: 14,
-                                color: Colors.black54
-                            ),
+                            style:
+                                TextStyle(fontSize: 14, color: Colors.black54),
                           ),
                         ),
                         const Padding(
@@ -126,10 +111,9 @@ class _HomepageState extends State<Homepage> {
                           child: Text(
                             '- John Doe',
                             style: TextStyle(
-                              fontSize: 14,
-                              fontStyle: FontStyle.italic,
-                              color: Colors.black54
-                            ),
+                                fontSize: 14,
+                                fontStyle: FontStyle.italic,
+                                color: Colors.black54),
                           ),
                         ),
                         Row(
@@ -139,10 +123,9 @@ class _HomepageState extends State<Homepage> {
                               child: Align(
                                 alignment: Alignment.topLeft,
                                 child: IconButton(
-                                  icon: const Icon(Icons.thumb_up_sharp, color: Colors.black87),
-                                  onPressed: () {
-
-                                  },
+                                  icon: const Icon(Icons.thumb_up_sharp,
+                                      color: Colors.black87),
+                                  onPressed: () {},
                                 ),
                               ),
                             ),
@@ -154,8 +137,7 @@ class _HomepageState extends State<Homepage> {
                                 child: IconButton(
                                   icon: const Icon(Icons.comment_rounded,
                                       color: Colors.black87),
-                                  onPressed: () {
-                                  },
+                                  onPressed: () {},
                                 ),
                               ),
                             )
@@ -164,16 +146,14 @@ class _HomepageState extends State<Homepage> {
                       ],
                     ),
                   );
-                  },
+                },
               ),
             ),
           ],
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {
-
-        },
+        onPressed: () {},
         backgroundColor: Colors.green,
         child: const Icon(Icons.add),
       ),

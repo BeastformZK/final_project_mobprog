@@ -1,7 +1,6 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
 import 'package:final_project_mobprog/Screens/home_page.dart';
 import 'package:final_project_mobprog/Screens/library_page.dart';
-import 'package:final_project_mobprog/Screens/settings_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigator extends StatefulWidget {
@@ -17,7 +16,7 @@ class _BottomNavigatorState extends State<BottomNavigator> {
   final List<Widget> _pages = [
     const Homepage(),
     const LibraryPage(),
-    const SettingsPage()
+    //const SettingsPage()
   ];
 
   late int _selectedIndex = 0;
