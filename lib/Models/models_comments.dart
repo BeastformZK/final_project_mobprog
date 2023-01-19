@@ -1,4 +1,4 @@
-import 'package:final_project_mobprog/Models/models_users.dart';
+import 'models_users.dart';
 
 class Comment {
   int? id;

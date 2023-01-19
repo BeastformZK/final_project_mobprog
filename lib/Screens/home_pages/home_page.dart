@@ -1,49 +1,53 @@
 import 'package:flutter/material.dart';
 
-// Rico
+import '../../services_app/service_users.dart';
+import '../authentication_pages/login_page.dart';
+import '../post_pages/forms_posts.dart';
+import '../post_pages/post_screen_data.dart';
+import 'settings_userprofile_page.dart';
 
 class Homepage extends StatefulWidget {
-  const Homepage({Key? key}) : super(key: key);
+  const Homepage({super.key});
 
   @override
-  State<Homepage> createState() => _HomepageState();
+  _HomepageState createState() => _HomepageState();
 }
 
 class _HomepageState extends State<Homepage> {
+  int currentIndex = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.green,
-      drawer: Drawer(
+      backgroundColor: Colors.black87,
+      endDrawer: Drawer(
         child: ListView(
-          padding: EdgeInsets.zero,
           children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(color: Colors.green),
-              child: Text(
-                'Welcome',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+            Card(
+              elevation: 10,
+              child: ListTile(
+                leading: const Icon(Icons.logout),
+                title: const Text('Logout'),
+                onTap: () {
+                  logout().then((value) => {
+                        Navigator.of(context).pushAndRemoveUntil(
+                            MaterialPageRoute(
+                                builder: (context) => const LoginWidget()),
+                            (route) => false)
+                      });
+                },
               ),
             ),
-            ListTile(
-              leading: const Icon(Icons.home),
-              title: const Text('Home'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.account_circle),
-              title: const Text('Profile'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('Settings'),
-              onTap: () {},
-            ),
-            ListTile(
-              leading: const Icon(Icons.logout),
-              title: const Text('Logout'),
-              onTap: () {},
+            Card(
+              elevation: 10,
+              child: ListTile(
+                leading: const Icon(Icons.person),
+                title: const Text('Gamer Profile'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Profile()));
+                },
+              ),
             ),
           ],
         ),
@@ -53,109 +57,39 @@ class _HomepageState extends State<Homepage> {
         elevation: 0,
         title: const Text('Game Blog', style: TextStyle(color: Colors.white)),
       ),
-      body: Container(
-        padding: const EdgeInsets.all(10),
-        child: Column(
-          children: <Widget>[
-            Expanded(
-              child: ListView.builder(
-                itemCount: 10,
-                itemBuilder: (context, index) {
-                  return Container(
-                    margin: const EdgeInsets.only(bottom: 10),
-                    decoration: BoxDecoration(
-                      color: Colors.white,
-                      borderRadius: BorderRadius.circular(10),
-                      boxShadow: const [
-                        BoxShadow(
-                            color: Colors.black38,
-                            offset: Offset(0, 5),
-                            blurRadius: 10)
-                      ],
-                    ),
-                    child: Column(
-                      children: <Widget>[
-                        Container(
-                          height: 150,
-                          decoration: const BoxDecoration(
-                            borderRadius: BorderRadius.only(
-                              topLeft: Radius.circular(10),
-                              topRight: Radius.circular(10),
-                            ),
-                            image: DecorationImage(
-                                image: NetworkImage(
-                                    'https://www.shutterstock.com/image-vector/infinite-game-pad-logo-icon-260nw-1682151313.jpg'),
-                                fit: BoxFit.contain),
-                          ),
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'Game $index review',
-                            style: const TextStyle(
-                                fontSize: 20,
-                                fontWeight: FontWeight.bold,
-                                color: Colors.black87),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed euismod elit velit, non faucibus libero tristique at. Sed euismod elit velit, non faucibus libero tristique at.',
-                            style:
-                                TextStyle(fontSize: 14, color: Colors.black54),
-                          ),
-                        ),
-                        const Padding(
-                          padding: EdgeInsets.all(8.0),
-                          child: Text(
-                            '- John Doe',
-                            style: TextStyle(
-                                fontSize: 14,
-                                fontStyle: FontStyle.italic,
-                                color: Colors.black54),
-                          ),
-                        ),
-                        Row(
-                          children: [
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Align(
-                                alignment: Alignment.topLeft,
-                                child: IconButton(
-                                  icon: const Icon(Icons.thumb_up_sharp,
-                                      color: Colors.black87),
-                                  onPressed: () {},
-                                ),
-                              ),
-                            ),
-                            const Spacer(flex: 1),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Align(
-                                alignment: Alignment.topRight,
-                                child: IconButton(
-                                  icon: const Icon(Icons.comment_rounded,
-                                      color: Colors.black87),
-                                  onPressed: () {},
-                                ),
-                              ),
-                            )
-                          ],
-                        ),
-                      ],
-                    ),
-                  );
-                },
-              ),
-            ),
-          ],
-        ),
-      ),
+      body: currentIndex == 0 ? const PostScreen() : const Profile(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
         backgroundColor: Colors.green,
+        onPressed: () {
+          Navigator.of(context).push(MaterialPageRoute(
+              builder: (context) => const PostForm(
+                    title: 'New Game post',
+                  )));
+        },
         child: const Icon(Icons.add),
+      ),
+      floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
+      bottomNavigationBar: BottomAppBar(
+        notchMargin: 5,
+        elevation: 10,
+        clipBehavior: Clip.antiAlias,
+        shape: const CircularNotchedRectangle(),
+        child: BottomNavigationBar(
+          items: const [
+            BottomNavigationBarItem(
+              icon: Icon(Icons.home),
+              label: 'Game Home',
+            ),
+            BottomNavigationBarItem(
+                icon: Icon(Icons.person), label: 'Gamer Profile')
+          ],
+          currentIndex: currentIndex,
+          onTap: (val) {
+            setState(() {
+              currentIndex = val;
+            });
+          },
+        ),
       ),
     );
   }

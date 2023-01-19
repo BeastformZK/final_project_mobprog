@@ -1,9 +1,10 @@
-import 'package:final_project_mobprog/Models/api_response.dart';
-import 'package:final_project_mobprog/Screens/home_pages/home_page.dart';
-import 'package:final_project_mobprog/Screens/authentication_pages/login_page.dart';
-import 'package:final_project_mobprog/constant_variables/constants.dart';
-import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:flutter/material.dart';
+
+import '../../constant_variables/constants.dart';
+import '../../models/api_response.dart';
+import '../../services_app/service_users.dart';
+import '../home_pages/home_page.dart';
+import 'login_page.dart';
 
 // Radaza
 

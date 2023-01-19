@@ -1,5 +1,5 @@
-import 'package:final_project_mobprog/Screens/authentication_pages/login_page.dart';
 import 'package:flutter/material.dart';
+import 'Screens/authentication_pages/login_page.dart';
 
 void main() {
   runApp(const App());

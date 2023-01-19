@@ -1,10 +1,10 @@
 import 'dart:convert';
 import 'dart:io';
-import 'package:final_project_mobprog/Models/api_response.dart';
-import 'package:final_project_mobprog/Models/models_users.dart';
-import 'package:final_project_mobprog/constant_variables/constants.dart';
 import 'package:http/http.dart' as http;
 import 'package:shared_preferences/shared_preferences.dart';
+import '../Models/models_users.dart';
+import '../constant_variables/constants.dart';
+import '../models/api_response.dart';
 
 // Radaza
 

@@ -1,9 +1,9 @@
 import 'dart:convert';
-import 'package:final_project_mobprog/Models/models_posts.dart';
-import 'package:final_project_mobprog/constant_variables/constants.dart';
-import 'package:final_project_mobprog/models/api_response.dart';
-import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:http/http.dart' as http;
+import '../Models/models_posts.dart';
+import '../constant_variables/constants.dart';
+import '../models/api_response.dart';
+import 'service_users.dart';
 
 // Radaza
 
