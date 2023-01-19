@@ -1,7 +1,7 @@
 import 'package:final_project_mobprog/Models/api_response.dart';
 import 'package:final_project_mobprog/Models/models_users.dart';
-import 'package:final_project_mobprog/Screens/home_page.dart';
-import 'package:final_project_mobprog/Screens/register_page.dart';
+import 'package:final_project_mobprog/Screens/authentication_pages/register_page.dart';
+import 'package:final_project_mobprog/Screens/home_pages/home_page.dart';
 import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';

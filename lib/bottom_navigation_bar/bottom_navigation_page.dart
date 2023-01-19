@@ -1,6 +1,6 @@
 import 'package:bottom_navy_bar/bottom_navy_bar.dart';
-import 'package:final_project_mobprog/Screens/home_page.dart';
-import 'package:final_project_mobprog/Screens/library_page.dart';
+import 'package:final_project_mobprog/Screens/home_pages/home_page.dart';
+import 'package:final_project_mobprog/Screens/library_pages/library_page.dart';
 import 'package:flutter/material.dart';
 
 class BottomNavigator extends StatefulWidget {
