@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 import '../../Models/models_users.dart';
@@ -18,6 +19,7 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -49,10 +51,15 @@ class _LoginWidgetState extends State<LoginWidget> {
         (route) => false);
   }
 
+
   @override
   void initState() {
     super.initState();
     passwordVisible = false;
+    Future.delayed(const Duration(seconds: 5)).then((value) => {
+      FlutterNativeSplash.remove()
+    });
+
   }
 
   @override
