@@ -1,4 +1,4 @@
-// ----- STRINGS ------
+// Strings
 
 import 'package:flutter/material.dart';
 
@@ -10,12 +10,12 @@ const userURL = '$baseURL/user';
 const postsURL = '$baseURL/posts';
 const commentsURL = '$baseURL/comments';
 
-// ----- Errors -----
+// Errors
 const serverError = 'Server error';
 const unauthorized = 'Unauthorized';
 const somethingWentWrong = 'Something went wrong, try again!';
 
-// likes and comment btn
+// likes and comment Buttons
 
 Expanded likeAndComment(int value, IconData icon, Color color, Function onTap) {
   return Expanded(

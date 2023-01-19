@@ -1,7 +1,6 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-
 import '../../Models/models_users.dart';
 import '../../constant_variables/constants.dart';
 import '../../models/api_response.dart';

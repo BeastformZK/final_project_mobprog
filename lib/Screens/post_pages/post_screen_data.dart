@@ -139,7 +139,7 @@ class _PostScreenState extends State<PostScreen> {
                                         padding: EdgeInsets.only(right: 10),
                                         child: Icon(
                                           Icons.more_vert,
-                                          color: Colors.black,
+                                          color: Colors.green,
                                         )),
                                     itemBuilder: (context) => [
                                       const PopupMenuItem(
