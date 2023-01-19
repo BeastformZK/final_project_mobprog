@@ -6,7 +6,7 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher"
-        android:label="final_project_mobprog"
+        android:label="Game Pulse"
         tools:ignore="ExtraText">
         android:usesCleartextTraffic="true"
         android:requestLegacyExternalStorage="true">

@@ -4,6 +4,7 @@ import 'package:final_project_mobprog/Screens/authentication_pages/register_page
 import 'package:final_project_mobprog/Screens/home_pages/home_page.dart';
 import 'package:final_project_mobprog/services_app/service_users.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 // Kate Ladera
@@ -17,6 +18,7 @@ class LoginWidget extends StatefulWidget {
 }
 
 class _LoginWidgetState extends State<LoginWidget> {
+
   final GlobalKey<FormState> formKey = GlobalKey<FormState>();
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
@@ -48,10 +50,15 @@ class _LoginWidgetState extends State<LoginWidget> {
         (route) => false);
   }
 
+
   @override
   void initState() {
     super.initState();
     passwordVisible = false;
+    Future.delayed(const Duration(seconds: 5)).then((value) => {
+      FlutterNativeSplash.remove()
+    });
+
   }
 
   @override
