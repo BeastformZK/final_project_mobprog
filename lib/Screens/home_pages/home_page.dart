@@ -29,14 +29,14 @@ class _HomepageState extends State<Homepage> {
                 title: const Text('Logout'),
                 onTap: () {
                   logout().then((value) => {
-                        Navigator.of(context).pushAndRemoveUntil(
-                            MaterialPageRoute(
-                                builder: (context) => const LoginWidget()),
+                    Navigator.of(context).pushAndRemoveUntil(
+                        MaterialPageRoute(
+                            builder: (context) => const LoginWidget()), //allows the user to move between different pages
                             (route) => false)
-                      });
+                  });
                 },
-              ),
-            ),
+              ), //contains one to three lines of text optionally flanked by icons or other widgets, such as check boxes
+            ), //a panel with slightly rounded corners and an elevation shadow
             Card(
               elevation: 10,
               child: ListTile(
@@ -46,24 +46,24 @@ class _HomepageState extends State<Homepage> {
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => const Profile()));
                 },
-              ),
-            ),
+              ),//contains our gamer profile with icon
+            ),// to elevate our icon
           ],
-        ),
-      ),
+        ), // list of scrollable widgets arranged linearly
+      ), //an alternative option for tabs
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         elevation: 0,
         title: const Text('Game Blog', style: TextStyle(color: Colors.white)),
-      ),
+      ), //consists the game blog
       body: currentIndex == 0 ? const PostScreen() : const Profile(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => const PostForm(
-                    title: 'New Game post',
-                  )));
+                title: 'New Game post',
+              ))); //send data to the server
         },
         child: const Icon(Icons.add),
       ),
@@ -78,7 +78,7 @@ class _HomepageState extends State<Homepage> {
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
               label: 'Game Home',
-            ),
+            ), //displayed at the bottom of an app for selecting among a small number of views
             BottomNavigationBarItem(
                 icon: Icon(Icons.person), label: 'Gamer Profile')
           ],
@@ -88,8 +88,8 @@ class _HomepageState extends State<Homepage> {
               currentIndex = val;
             });
           },
-        ),
-      ),
-    );
+        ),//provides quick navigation between the top views of an app
+      ),//AppBar located at the bottom area
+    ); //a material design layout structure that is the main container for the Home page
   }
 }
