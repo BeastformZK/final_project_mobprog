@@ -18,10 +18,31 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
-      endDrawer: Drawer(
+      backgroundColor: Colors.white,
+      drawer: Drawer(
         child: ListView(
           children: [
+            const DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.green,
+              ),
+              child: Text(
+                'Welcome',
+                style: TextStyle(fontWeight: FontWeight.bold,
+                    fontSize: 20),
+              ),
+            ),
+            Card(
+              elevation: 10,
+              child: ListTile(
+                leading: const Icon(Icons.person),
+                title: const Text('Gamer Profile'),
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => const Profile()));
+                },
+              ),
+            ),
             Card(
               elevation: 10,
               child: ListTile(
@@ -37,22 +58,11 @@ class _HomepageState extends State<Homepage> {
                 },
               ),
             ),
-            Card(
-              elevation: 10,
-              child: ListTile(
-                leading: const Icon(Icons.person),
-                title: const Text('Gamer Profile'),
-                onTap: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => const Profile()));
-                },
-              ),
-            ),
           ],
         ),
       ),
       appBar: AppBar(
-        backgroundColor: Colors.transparent,
+        backgroundColor: Colors.green,
         elevation: 0,
         title: const Text('Game Blog', style: TextStyle(color: Colors.white)),
       ),
@@ -62,11 +72,12 @@ class _HomepageState extends State<Homepage> {
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => const PostForm(
-                    title: 'New Game post',
-                  )));
+                title: 'New Game post',
+              )));
         },
-        child: const Icon(Icons.add),
+        child: const Icon(Icons.gamepad_sharp),
       ),
+
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       bottomNavigationBar: BottomAppBar(
         notchMargin: 5,
@@ -74,22 +85,27 @@ class _HomepageState extends State<Homepage> {
         clipBehavior: Clip.antiAlias,
         shape: const CircularNotchedRectangle(),
         child: BottomNavigationBar(
-          items: const [
-            BottomNavigationBarItem(
-              icon: Icon(Icons.home),
-              label: 'Game Home',
-            ),
-            BottomNavigationBarItem(
-                icon: Icon(Icons.person), label: 'Gamer Profile')
-          ],
-          currentIndex: currentIndex,
-          onTap: (val) {
-            setState(() {
-              currentIndex = val;
-            });
-          },
+            items: const [
+              BottomNavigationBarItem(
+                icon: Icon(Icons.home),
+                label: 'Game Home',
+              ),
+              BottomNavigationBarItem(
+                  icon: Icon(Icons.person), label: 'Gamer Profile'
+              )
+            ],
+            currentIndex: currentIndex,
+            onTap: (val) {
+              setState(() {
+                currentIndex = val;
+              });
+            },
+            backgroundColor: Colors.green,
+            selectedItemColor: Colors.white,
+            unselectedItemColor: Colors.white
         ),
       ),
+
     );
   }
 }

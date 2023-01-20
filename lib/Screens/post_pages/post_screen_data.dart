@@ -119,7 +119,7 @@ class _PostScreenState extends State<PostScreen> {
                                                     '${post.user!.image}'))
                                             : null,
                                         borderRadius: BorderRadius.circular(25),
-                                        color: Colors.amber),
+                                        color: Colors.green),
                                   ),
                                   const SizedBox(
                                     width: 10,
@@ -127,6 +127,7 @@ class _PostScreenState extends State<PostScreen> {
                                   Text(
                                     '${post.user!.name}',
                                     style: const TextStyle(
+                                      color: Colors.black,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 17),
                                   )
@@ -139,7 +140,7 @@ class _PostScreenState extends State<PostScreen> {
                                         padding: EdgeInsets.only(right: 10),
                                         child: Icon(
                                           Icons.more_vert,
-                                          color: Colors.green,
+                                          color: Colors.black,
                                         )),
                                     itemBuilder: (context) => [
                                       const PopupMenuItem(
@@ -165,9 +166,28 @@ class _PostScreenState extends State<PostScreen> {
                           ],
                         ),
                         const SizedBox(
-                          height: 12,
+                          height: 5,
                         ),
-                        Text('${post.body}'),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 1,
+                          color: Colors.black,
+                        ),
+                        Container(
+                          width: double.infinity,
+                          height: 70,
+                          decoration: BoxDecoration(
+                            border: Border.all(color: Colors.transparent, width: 2),
+                            borderRadius: BorderRadius.circular(10),
+                          ),
+                          child: SizedBox(
+                            child: Text(' ${post.body}',
+                                style: const TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 20)),
+                          ),
+                        ),
+
                         post.image != null
                             ? Container(
                                 width: MediaQuery.of(context).size.width,
@@ -181,6 +201,11 @@ class _PostScreenState extends State<PostScreen> {
                             : SizedBox(
                                 height: post.image != null ? 0 : 10,
                               ),
+                        Container(
+                          width: MediaQuery.of(context).size.width,
+                          height: 1,
+                          color: Colors.black,
+                        ),
                         Row(
                           children: [
                             likeAndComment(
@@ -195,8 +220,8 @@ class _PostScreenState extends State<PostScreen> {
                             }),
                             Container(
                               height: 25,
-                              width: 0.5,
-                              color: Colors.black38,
+                              width: 1,
+                              color: Colors.black,
                             ),
                             likeAndComment(post.commentsCount ?? 0,
                                 Icons.sms_outlined, Colors.black54, () {
@@ -209,8 +234,8 @@ class _PostScreenState extends State<PostScreen> {
                         ),
                         Container(
                           width: MediaQuery.of(context).size.width,
-                          height: 0.5,
-                          color: Colors.black26,
+                          height: 1,
+                          color: Colors.black,
                         ),
                       ],
                     ),
