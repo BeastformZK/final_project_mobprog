@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../Models/models_users.dart';
 import '../../models/api_response.dart';
 import '../../services_app/service_users.dart';
@@ -38,7 +37,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
       });
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('${response.error}')));
+          .showSnackBar(SnackBar(content: Text('${response.error}'))
+      );
     }
   }
 
@@ -49,8 +49,11 @@ class _RegisterWidgetState extends State<RegisterWidget> {
     await pref.setInt('userId', user.id ?? 0);
     // ignore: use_build_context_synchronously
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(builder: (context) => const Homepage()),
-        (route) => false);
+        MaterialPageRoute(
+            builder: (context) => const Homepage()
+        ),
+        (route) => false
+    );
   }
 
   @override
@@ -68,20 +71,24 @@ class _RegisterWidgetState extends State<RegisterWidget> {
         key: formKey,
         child: Center(
           child: SingleChildScrollView(
-            child:
-                Column(mainAxisAlignment: MainAxisAlignment.center, children: [
-              const Icon(
-                Icons.gamepad_rounded,
-                size: 80,
-                color: Colors.lightGreen,
+            child: Column( mainAxisAlignment: MainAxisAlignment.center, children: [
+              const Padding(
+                padding: EdgeInsets.fromLTRB(0, 10, 0, 10),
+                child: SizedBox(
+                  height: 180,
+                  child: Image(
+                      image: AssetImage('assets/background_logo.png')
+                  ),
+                ),
               ),
-              const SizedBox(height: 30),
+              const SizedBox(height: 5),
               const Text(
                 'Sign Up!',
                 style: TextStyle(
                     fontWeight: FontWeight.bold,
                     fontSize: 30,
-                    color: Colors.white),
+                    color: Colors.white
+                ),
               ),
               const SizedBox(height: 20),
               Padding(
@@ -126,7 +133,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                       decoration: const InputDecoration(
                           labelText: 'Email',
                           border: InputBorder.none,
-                          icon: Icon(Icons.alternate_email_outlined)),
+                          icon: Icon(Icons.alternate_email_outlined)
+                      ),
                     ),
                   ),
                 ),
@@ -205,7 +213,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                             },
                           ),
                         ),
-                      )),
+                      )
+                  ),
                 ),
               ),
               const SizedBox(height: 20),
@@ -218,7 +227,9 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                               minimumSize: const Size.fromHeight(50),
                               backgroundColor: Colors.lightGreen,
                               shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(20))),
+                                  borderRadius: BorderRadius.circular(20)
+                              )
+                          ),
                           icon: const Icon(
                             Icons.app_registration,
                             size: 30,
@@ -226,8 +237,10 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                           ),
                           label: const Text(
                             'Sign up',
-                            style:
-                                TextStyle(fontSize: 15, color: Colors.black54),
+                            style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.black54
+                            ),
                           ),
                           onPressed: () {
                             if (formKey.currentState!.validate()) {
@@ -236,7 +249,8 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                                 _registerUser();
                               });
                             }
-                          }),
+                          }
+                      ),
                     ),
               const SizedBox(height: 10),
               Row(
@@ -244,14 +258,19 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                 children: [
                   const Text(
                     'Already have an Account? ',
-                    style: TextStyle(fontSize: 17, color: Colors.white),
+                    style: TextStyle(
+                        fontSize: 17,
+                        color: Colors.white
+                    ),
                   ),
                   GestureDetector(
                     onTap: () {
                       Navigator.of(context).pushAndRemoveUntil(
                           MaterialPageRoute(
-                              builder: (context) => const LoginWidget()),
-                          (route) => false);
+                              builder: (context) => const LoginWidget()
+                          ),
+                          (route) => false
+                      );
                     },
                     child: const Text(
                       'Log In',
