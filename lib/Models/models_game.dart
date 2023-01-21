@@ -227,7 +227,7 @@ List<GameModel> gameList = [
   GameModel(
       title: 'Red Dead Redemption',
       description:
-      'Red Dead Redemption is a 2010 western-themed, action-adventure video game developed by Rockstar San Diego and Rockstar North and published by Rockstar Games. '
+          'Red Dead Redemption is a 2010 western-themed, action-adventure video game developed by Rockstar San Diego and Rockstar North and published by Rockstar Games. '
           'It is the second game of the Red Dead series and was released for the PlayStation 3 and Xbox 360 on May 18, 2010, '
           'in North America, and three days later on May 21, 2010, in Europe.',
       imageUrl: "https://m.media-amazon.com/images/M/MV5BODQ1YzU4MmMtYmE0YS00NTRjLWE4YWMtZWNiNzM4M2ZkMzcxXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg",
@@ -237,7 +237,7 @@ List<GameModel> gameList = [
   GameModel(
       title: 'Grand Theft Auto: San Andreas',
       description:
-      'Grand Theft Auto: San Andreas is a Rockstar North-developed video game released on 26th October 2004 by Rockstar Games, and is the seventh title in the Grand Theft Auto series and the third game in the 3D Universe of the series. '
+          'Grand Theft Auto: San Andreas is a Rockstar North-developed video game released on 26th October 2004 by Rockstar Games, and is the seventh title in the Grand Theft Auto series and the third game in the 3D Universe of the series. '
           'It is the sequel to Grand Theft Auto: Vice City and the prequel to Grand Theft Auto: Liberty City Stories and Grand Theft Auto III.'
           'It was released on the same date as Grand Theft Auto Advance. GTA San Andreas is set in the fictional state of San Andreas.',
       imageUrl: "https://m.media-amazon.com/images/M/MV5BMTAyYWYyOTMtNmUzNS00NzNjLTkyZTUtZjhlZjMzYzJmNzM5XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg",
@@ -247,12 +247,32 @@ List<GameModel> gameList = [
   GameModel(
       title: 'Stardew Valley',
       description:
-      'Stardew Valley was first released on Windows in February 2016 and has seen many ports and updates since then. '
+          'Stardew Valley was first released on Windows in February 2016 and has seen many ports and updates since then. '
           'The player controls a custom character who takes over their grandfathers farm in Stardew Valley, at which point the player can choose their own path. From expanding the farm and raising livestock to improving their skills and finding love and friendship, '
           'from fishing and exploring caves to decorating and renovating their house, Stardew Valley allows players to live out their own life in the peaceful farm lifestyle!',
       imageUrl: "https://images4.alphacoders.com/782/thumb-1920-782781.png",
       year: 2016,
       genre: 'Indie game, Role-playing video game, Adventure game',
       ratings: ' Metacritic: 89% | 9.5/10 IGN. '),
+  GameModel(
+      title: 'Elden Ring',
+      description:
+          'Elden Ring is a dark fantasy RPG that lets you play one of the descendants of the Tarnished. '
+          'An outcast, you must enter the Lands Between to try to gain re-admittance to the society there as an Elden Lord. '
+          'To do that, you must reveal the mystery of the fabled Elden Ring. Your adventures in the Lands Between will teem with threats and brim with unknown.',
+      imageUrl: "https://static.wikia.nocookie.net/eldenring/images/d/d6/MP-Key-Art.jpg/revision/latest?cb=20220223180331",
+      year: 2022,
+      genre: 'Adventure game, Action role-playing game, Fighting game, Platform game',
+      ratings: ' Metacritic: 96% | 10/10 IGN. '),
+  GameModel(
+      title: 'Stray',
+      description:
+          'Stray is a third-person cat adventure game set amidst the detailed, '
+          'neon-lit alleys of a decaying cybercity and the murky environments of its seedy underbelly. '
+          'Roam surroundings high and low, defend against unforeseen threats and solve the mysteries of this unwelcoming place inhabited by curious droids and dangerous creatures.',
+      imageUrl: "https://static.wikia.nocookie.net/stray/images/0/07/Stray.png/revision/latest?cb=20220310061247",
+      year: 2022,
+      genre: 'Adventure game, Indie game, Puzzle, Simulation video game',
+      ratings: ' Metacritic: 83% | 8/10 IGN. '),
 
 ];
