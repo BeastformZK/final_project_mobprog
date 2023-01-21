@@ -216,8 +216,19 @@ List<GameModel> gameList = [
           'First released in playstation consoles.'
           'Created by Blizzard Entertainment ',
       imageUrl:
-      "",
+      "https://wallpaperaccess.com/full/2696059.jpg",
       year: 2016,
       genre: 'First person shooter, Fighting game',
       ratings: '79% Metacritic | 10/10 IGN. '),
+  GameModel(
+      title: 'Fortnite',
+      description:
+      ' a survival game where 100 players fight against each other in player versus player combat to be the last one standing'
+          'A third person shooting game'
+          'fast paced shooter game with the applying building strats',
+      imageUrl:
+      "https://wallpaper.dog/large/641815.jpg",
+      year: 2017,
+      genre: 'third person shooter, survival game',
+      ratings: '83% Metacritic | 9.6/10 IGN. '),
 ];
