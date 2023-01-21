@@ -275,4 +275,53 @@ List<GameModel> gameList = [
       genre: 'Adventure game, Indie game, Puzzle, Simulation video game',
       ratings: ' Metacritic: 83% | 8/10 IGN. '),
 
+  GameModel(
+      title: 'HALF LIFE 2',
+      description:
+          'Opens the door to a world where the players presence affects everything around him, '
+          'from the physical environment to the behaviors -- even the emotions -- of both friends and enemies. '
+          'The player again picks up the crowbar of research scientist Gordon Freeman, who finds himself '
+          'on an alien-infested Earth being picked to the bone, its resources depleted, its populace dwindling. '
+          'Freeman is thrust into the unenviable role of rescuing the world from the wrong he unleashed back at Black Mesa. And a lot of people -- people he cares about -- are counting on him. ',
+      imageUrl: "https://s2.gaming-cdn.com/images/products/2284/orig/half-life-2-pc-mac-game-steam-cover.jpg?v=1650555068",
+      year: 2004,
+      genre: 'Action, Shooter, Shooter, First-Person, Sci-Fi, Sci-Fi, Arcade',
+      ratings: ' Metacritic: 91% | 9.2/10 IGN. '),
+
+  GameModel(
+      title: 'DISCO ELYSIUM: THE FINAL CUT',
+      description:
+          'Pursue your political dreams in new quests, meet and question more of the citys locals, and explore a whole extra area. '
+          'Full voice-acting, controller support, and expanded language options also included. Get even more out of this award-winning open world. '
+          'You are a detective with a unique skill system at your disposal and a whole city block to carve your path across. Interrogate unforgettable characters, crack murders, or take bribes. '
+          'Become a hero or an absolute disaster of a human being.',
+      imageUrl: "https://cdn.akamai.steamstatic.com/steam/apps/632470/header.jpg?t=1667483149",
+      year: 2021,
+      genre: 'Role-Playing, General, Western-Style',
+      ratings: ' Metacritic: 83% | 8.3/10 IGN. '),
+
+  GameModel(
+      title: 'GRAND THEFT AUTO V',
+      description:
+          'Los Santos: a sprawling sun-soaked metropolis full of self-help gurus, starlets and fading celebrities, once the envy of the Western world, '
+          'now struggling to stay alive in a time of economic uncertainty and cheap reality TV. Amidst the turmoil, three very unique criminals plot their own chances of survival and success: '
+          'Franklin, a street hustler looking for tangible opportunities and serious money; Michael, a professional ex-con whose retirement is less rosy than he figured it would be; '
+          'and Trevor, a violent dude driven by the opportunity for a cheap high and his next big score. With options at a premium, the crew risks it all in a myriad of daring and dangerous heists that could set them up for life.',
+      imageUrl: "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg?t=1671485100",
+      year: 2015,
+      genre: 'Modern, Action Adventure, Open-World',
+      ratings: ' Metacritic: 79% | 7.8/10 IGN. '),
+
+  GameModel(
+      title: 'Call of Duty: Warzone 2.0',
+      description:
+          'A first-person shooter, set in the Call of Duty universe, in which players engage in multiplayer battle royale- '
+          'and plunder-style skirmishes. Players assume the roles of soldiers/freedom fighters battling to be the last man standing or to earn the most '
+          'money via scavenging and performing objectives. Players use machine guns, shotguns, sniper rifles, and explosives to kill enemies in frenetic '
+          'combat. Battles are accompanied by realistic gunfire, screams of pain, and blood-splatter effects.',
+      imageUrl: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mw-wz/WZ2-S01-DMZ-TACTICS-TOUT.jpg",
+      year: 2022,
+      genre: 'First-Person Shooter',
+      ratings: ' Metacritic: 80% | 8/10 IGN. '),
+
 ];
