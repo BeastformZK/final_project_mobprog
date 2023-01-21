@@ -164,5 +164,60 @@ List<GameModel> gameList = [
           "https://image.api.playstation.com/vulcan/img/rnd/202106/2908/7aJhOMuJALdBPqZHVy3CgJsg.png",
       year: 2022,
       genre: 'Action/Shooting/Horror',
-      ratings: '7/10 Steam | 7/10 IGN')
+      ratings: '7/10 Steam | 7/10 IGN'),
+  GameModel(
+      title: 'DotA 2',
+      description:
+      'A Multiplayer online battle arena (MOBA).'
+          'The Objective to destroy the enemy ancient.'
+          'Played between 10 players 5 on each side. ',
+      imageUrl:
+      "https://i.pinimg.com/originals/43/d6/23/43d6232111a48d694d60b752f81d1ad8.jpg",
+      year: 2013,
+      genre: 'MOBA',
+      ratings: '8/10 Steam | 9.4/10 IGN '),
+  GameModel(
+      title: 'League of Legends',
+      description:
+      'A Multiplayer online battle arena (MOBA).'
+          'The Objective to destroy the enemy ancient.'
+          'Played between 10 players 5 on each side. ',
+      imageUrl:
+      "https://wallpaperaccess.com/full/2379005.jpg",
+      year: 2009,
+      genre: 'MOBA',
+      ratings: '78% Metacritic | 9.2/10 IGN. '),
+  GameModel(
+      title: 'Starcraft II',
+      description:
+      'is a real-time strategy game'
+          'similar to warcraft made by Blizzard Entertainment.'
+          'played with powerful races aim to destroy each other until no building left. ',
+      imageUrl:
+      "https://www.pngitem.com/pimgs/m/277-2774593_transparent-starcraft-logo-png-starcraft-2-logo-png.png",
+      year: 2010,
+      genre: 'Real-time Strategy game',
+      ratings: '86% Metacritic | 9/10 IGN. '),
+  GameModel(
+      title: 'Rocket League',
+      description:
+      'Vehicular soccer video game'
+          'Published by Psyonix.'
+          'First released in Playstation 4 console games. ',
+      imageUrl:
+      "https://i.pinimg.com/originals/91/bb/7e/91bb7eec0d6a6f5dfa1d1cbb00e9f2a6.jpg",
+      year: 2015,
+      genre: 'Action Vehicular Sports Game',
+      ratings: '86% Metacritic | 9.3/10 IGN. '),
+  GameModel(
+      title: 'Overwatch',
+      description:
+      'A first person shooting game that creates a new feel to the player'
+          'First released in playstation consoles.'
+          'Created by Blizzard Entertainment ',
+      imageUrl:
+      "",
+      year: 2016,
+      genre: 'First person shooter, Fighting game',
+      ratings: '79% Metacritic | 10/10 IGN. '),
 ];

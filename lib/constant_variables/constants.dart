@@ -2,11 +2,10 @@
 
 import 'package:flutter/material.dart';
 
-<<<<<<< Updated upstream
+
 const baseURL = 'http://192.168.1.5:8000/api';
-=======
-const baseURL = 'http://192.168.43.138:8000/api';
->>>>>>> Stashed changes
+
+
 const loginURL = '$baseURL/login';
 const registerURL = '$baseURL/register';
 const logoutURL = '$baseURL/logout';
