@@ -13,14 +13,6 @@ class _LibraryPageState extends State<LibraryPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        appBar: AppBar(
-          title: const Text(
-            'Game Sushi',
-            style: TextStyle(
-              fontSize: 15,
-            ),
-          ),
-        ),
         body: ListView.builder(
             itemCount: gameList.length,
             itemBuilder: (context, index) {

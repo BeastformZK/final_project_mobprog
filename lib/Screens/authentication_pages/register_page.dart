@@ -62,7 +62,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.black87,
+      backgroundColor: Colors.teal,
       body: Form(
         key: formKey,
         child: Center(
@@ -257,7 +257,7 @@ class _RegisterWidgetState extends State<RegisterWidget> {
                     child: const Text(
                       'Log In',
                       style: TextStyle(
-                        color: Colors.lightBlueAccent,
+                        color: Colors.white,
                         fontSize: 17,
                         fontWeight: FontWeight.bold,
                         decoration: TextDecoration.underline,

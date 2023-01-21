@@ -166,10 +166,10 @@ List<GameModel> gameList = [
       genre: 'Action/Shooting/Horror',
       ratings: '7/10 Steam | 7/10 IGN'),
   GameModel(
-      title: 'DotA 2',
+      title: 'Dota 2',
       description: 'A Multiplayer online battle arena (MOBA).'
           'The Objective to destroy the enemy ancient.'
-          'Played between 10 players 5 on each side. ',
+          ' Played between 10 players 5 on each side. ',
       imageUrl:
           "https://i.pinimg.com/originals/43/d6/23/43d6232111a48d694d60b752f81d1ad8.jpg",
       year: 2013,
@@ -179,7 +179,7 @@ List<GameModel> gameList = [
       title: 'League of Legends',
       description: 'A Multiplayer online battle arena (MOBA).'
           'The Objective to destroy the enemy ancient.'
-          'Played between 10 players 5 on each side. ',
+          ' Played between 10 players 5 on each side. ',
       imageUrl: "https://wallpaperaccess.com/full/2379005.jpg",
       year: 2009,
       genre: 'MOBA',
@@ -188,7 +188,7 @@ List<GameModel> gameList = [
       title: 'Starcraft II',
       description: 'is a real-time strategy game'
           'similar to warcraft made by Blizzard Entertainment.'
-          'played with powerful races aim to destroy each other until no building left. ',
+          ' Played with powerful races aim to destroy each other until no building left. ',
       imageUrl:
           "https://www.pngitem.com/pimgs/m/277-2774593_transparent-starcraft-logo-png-starcraft-2-logo-png.png",
       year: 2010,

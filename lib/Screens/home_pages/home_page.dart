@@ -1,8 +1,9 @@
+import 'package:final_project_mobprog/Screens/library_pages/library_page.dart';
 import 'package:flutter/material.dart';
 import '../navigation_drawer_pages/navigation_drawer_page.dart';
 import '../post_pages/forms_posts.dart';
 import '../post_pages/post_screen_data.dart';
-import 'settings_userprofile_page.dart';
+
 
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
@@ -27,7 +28,7 @@ class _HomepageState extends State<Homepage> {
         elevation: 0,
         title: const Text('Game Blog', style: TextStyle(color: Colors.white)),
       ),
-      body: currentIndex == 0 ? const PostScreen() : const Profile(),
+      body: currentIndex == 0 ? const PostScreen() : const LibraryPage(),
       floatingActionButton: FloatingActionButton(
         backgroundColor: Colors.green,
         onPressed: () {
@@ -52,7 +53,9 @@ class _HomepageState extends State<Homepage> {
                 label: 'Game Home',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: 'Gamer Profile')
+                  icon: Icon(Icons.person),
+                  label: 'Game Library'
+              )
             ],
             currentIndex: currentIndex,
             onTap: (val) {

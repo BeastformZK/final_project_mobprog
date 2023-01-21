@@ -57,7 +57,7 @@ class _LoginWidgetState extends State<LoginWidget> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        backgroundColor: Colors.black87,
+        backgroundColor: Colors.teal,
         body: Form(
           key: formKey,
           child: Center(
@@ -194,7 +194,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                           child: const Text(
                             'Sign Up',
                             style: TextStyle(
-                              color: Colors.lightBlueAccent,
+                              color: Colors.white,
                               fontSize: 17,
                               fontWeight: FontWeight.bold,
                               decoration: TextDecoration.underline,

@@ -11,6 +11,7 @@ class Profile extends StatefulWidget {
   const Profile({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _ProfileState createState() => _ProfileState();
 }
 
@@ -59,6 +60,7 @@ class _ProfileState extends State<Profile> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -74,6 +76,7 @@ class _ProfileState extends State<Profile> {
       loading = false;
     });
     if (response.error == null) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.data}')));
     } else if (response.error == unauthorized) {
@@ -83,6 +86,7 @@ class _ProfileState extends State<Profile> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
