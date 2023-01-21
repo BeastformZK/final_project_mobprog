@@ -83,6 +83,10 @@ class _PostFormState extends State<PostForm> {
     if (widget.post != null) {
       _title.text = widget.post!.title ?? '';
     }
+
+    if (widget.post != null) {
+      _description.text = widget.post!.description ?? '';
+    }
     super.initState();
   }
 
