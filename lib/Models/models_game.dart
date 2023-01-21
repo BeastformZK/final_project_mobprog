@@ -224,4 +224,35 @@ List<GameModel> gameList = [
       year: 2017,
       genre: 'third person shooter, survival game',
       ratings: '83% Metacritic | 9.6/10 IGN. '),
+  GameModel(
+      title: 'Red Dead Redemption',
+      description:
+      'Red Dead Redemption is a 2010 western-themed, action-adventure video game developed by Rockstar San Diego and Rockstar North and published by Rockstar Games. '
+          'It is the second game of the Red Dead series and was released for the PlayStation 3 and Xbox 360 on May 18, 2010, '
+          'in North America, and three days later on May 21, 2010, in Europe.',
+      imageUrl: "https://m.media-amazon.com/images/M/MV5BODQ1YzU4MmMtYmE0YS00NTRjLWE4YWMtZWNiNzM4M2ZkMzcxXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg",
+      year: 2010,
+      genre: 'Third-person shooter, action-adventure, western',
+      ratings: ' Metacritic: 95% | 9.7/10 IGN. '),
+  GameModel(
+      title: 'Grand Theft Auto: San Andreas',
+      description:
+      'Grand Theft Auto: San Andreas is a Rockstar North-developed video game released on 26th October 2004 by Rockstar Games, and is the seventh title in the Grand Theft Auto series and the third game in the 3D Universe of the series. '
+          'It is the sequel to Grand Theft Auto: Vice City and the prequel to Grand Theft Auto: Liberty City Stories and Grand Theft Auto III.'
+          'It was released on the same date as Grand Theft Auto Advance. GTA San Andreas is set in the fictional state of San Andreas.',
+      imageUrl: "https://m.media-amazon.com/images/M/MV5BMTAyYWYyOTMtNmUzNS00NzNjLTkyZTUtZjhlZjMzYzJmNzM5XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg",
+      year: 2005,
+      genre: 'Action, Open world, Gambling/casino',
+      ratings: ' Metacritic: 93% | 9.6/10 IGN. '),
+  GameModel(
+      title: 'Stardew Valley',
+      description:
+      'Stardew Valley was first released on Windows in February 2016 and has seen many ports and updates since then. '
+          'The player controls a custom character who takes over their grandfathers farm in Stardew Valley, at which point the player can choose their own path. From expanding the farm and raising livestock to improving their skills and finding love and friendship, '
+          'from fishing and exploring caves to decorating and renovating their house, Stardew Valley allows players to live out their own life in the peaceful farm lifestyle!',
+      imageUrl: "https://images4.alphacoders.com/782/thumb-1920-782781.png",
+      year: 2016,
+      genre: 'Indie game, Role-playing video game, Adventure game',
+      ratings: ' Metacritic: 89% | 9.5/10 IGN. '),
+
 ];
