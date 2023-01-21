@@ -38,7 +38,7 @@ Future<ApiResponse> getPosts() async {
 }
 
 // Create post
-Future<ApiResponse> createPost(String body, String? image, String description) async {
+Future<ApiResponse> createPost(String title, String? image, String description) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     String token = await getToken();
@@ -48,13 +48,13 @@ Future<ApiResponse> createPost(String body, String? image, String description) a
           'Authorization': 'Bearer $token'
         },
         body: image != null ? {
-          'body': body,
+          'title': title,
           'image': image,
           'description': description
     }
             :
         {
-          'body': body,
+          'title': title,
           'description': description
         }
         );
@@ -84,7 +84,7 @@ Future<ApiResponse> createPost(String body, String? image, String description) a
 }
 
 // Edit post
-Future<ApiResponse> editPost(int postId, String body, String description) async {
+Future<ApiResponse> editPost(int postId, String title, String description) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     String token = await getToken();
@@ -92,7 +92,7 @@ Future<ApiResponse> editPost(int postId, String body, String description) async 
       'Accept': 'application/json',
       'Authorization': 'Bearer $token'
     }, body: {
-      'body': body,
+      'title': title,
       'description': description
     }
     );

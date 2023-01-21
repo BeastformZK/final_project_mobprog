@@ -81,7 +81,7 @@ class _PostFormState extends State<PostForm> {
   @override
   void initState() {
     if (widget.post != null) {
-      _title.text = widget.post!.body ?? '';
+      _title.text = widget.post!.title ?? '';
     }
     super.initState();
   }

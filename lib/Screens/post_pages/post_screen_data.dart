@@ -198,7 +198,7 @@ class _PostScreenState extends State<PostScreen> {
                           ),
 
                           child: SizedBox(
-                            child: Text(' ${post.body}',
+                            child: Text(' ${post.title}',
                                 style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,

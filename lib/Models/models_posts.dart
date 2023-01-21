@@ -2,7 +2,7 @@ import 'models_users.dart';
 
 class Post {
   int? id;
-  String? body;
+  String? title;
   String? image;
   String? description;
   int? likesCount;
@@ -12,7 +12,7 @@ class Post {
 
   Post({
     this.id,
-    this.body,
+    this.title,
     this.image,
     this.description,
     this.likesCount,
@@ -26,7 +26,7 @@ class Post {
   factory Post.fromJson(Map<String, dynamic> json) {
     return Post(
         id: json['id'],
-        body: json['body'],
+        title: json['title'],
         image: json['image'],
         description: json['description'],
         likesCount: json['likes_count'],
