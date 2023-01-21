@@ -29,30 +29,31 @@ class _PostFormState extends State<PostForm> {
   File? _imageFile;
   final _picker = ImagePicker();
 
-  Future getImage() async {
+  Future imageGet() async {
 
-    PermissionStatus storageStatus =
-    await Permission.storage.request();
+      PermissionStatus storageStatus =
+      await Permission.storage.request();
 
-    if (storageStatus == PermissionStatus.granted){
-      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-      setState(() {
-        _imageFile = File(pickedFile!.path);
+      if (storageStatus == PermissionStatus.granted){
+        final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+        setState(() {
+          _imageFile = File(pickedFile!.path);
+        }
+        );
       }
-      );
+
+      if (storageStatus == PermissionStatus.denied){
+        ScaffoldMessenger.of(context)
+            .showSnackBar(const SnackBar(content: Text("This permission is required")));
+      }
+
+      if (storageStatus == PermissionStatus.permanentlyDenied){
+        openAppSettings();
+      }
+
+
     }
 
-    if (storageStatus == PermissionStatus.denied){
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("This permission is required")));
-    }
-
-    if (storageStatus == PermissionStatus.permanentlyDenied){
-      openAppSettings();
-    }
-
-
-  }
 
   void _createPost() async {
     String? image = _imageFile == null ? null : getStringImage(_imageFile);
@@ -141,7 +142,7 @@ class _PostFormState extends State<PostForm> {
                             icon: const Icon(Icons.image,
                                 size: 50, color: Colors.black38),
                             onPressed: () {
-                              getImage();
+                              imageGet();
                             },
                           ),
                         ),

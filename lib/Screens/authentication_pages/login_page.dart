@@ -47,7 +47,7 @@ class _LoginWidgetState extends State<LoginWidget> {
         (route) => false);
   }
 
-  Future _permissionStorage() async{
+  Future _storagePermission() async{
     PermissionStatus storageStatus =
     await Permission.storage.request();
 
@@ -67,7 +67,7 @@ class _LoginWidgetState extends State<LoginWidget> {
 
   @override
   void initState() {
-    _permissionStorage();
+    _storagePermission();
     super.initState();
     passwordVisible = false;
     Future.delayed(const Duration(seconds: 5))
