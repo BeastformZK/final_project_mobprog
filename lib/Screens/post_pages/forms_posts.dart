@@ -29,7 +29,7 @@ class _PostFormState extends State<PostForm> {
   File? _imageFile;
   final _picker = ImagePicker();
 
-  Future imageGet() async {
+  Future getImage() async {
 
       PermissionStatus storageStatus =
       await Permission.storage.request();
@@ -142,7 +142,7 @@ class _PostFormState extends State<PostForm> {
                             icon: const Icon(Icons.image,
                                 size: 50, color: Colors.black38),
                             onPressed: () {
-                              imageGet();
+                              getImage();
                             },
                           ),
                         ),
