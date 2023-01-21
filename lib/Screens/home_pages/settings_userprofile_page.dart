@@ -186,6 +186,9 @@ class _ProfileState extends State<Profile> {
                         updateProfile();
                       }
                     },
+                    style: ElevatedButton.styleFrom(
+                      backgroundColor: Colors.green,
+                    ),
                     child: const Text('Update Gamer'))
               ],
             ),

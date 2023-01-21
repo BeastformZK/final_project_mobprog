@@ -8,6 +8,8 @@ import '../../services_app/service_post.dart';
 import '../../services_app/service_users.dart';
 import '../authentication_pages/login_page.dart';
 
+// Tibudan, Chelsea Shaira E.
+
 class PostForm extends StatefulWidget {
   final Post? post;
   final String? title;
@@ -94,7 +96,7 @@ class _PostFormState extends State<PostForm> {
     return Scaffold(
       appBar: AppBar(
         title: Text('${widget.title}',
-          style: TextStyle(
+          style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.green,
           ),
@@ -138,25 +140,6 @@ class _PostFormState extends State<PostForm> {
                       children: [
                         const SizedBox(height: 5,),
 
-                        const Text("Game Name", style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black87),
-                        ),
-
-                        TextFormField(
-                          controller: _txtControllerBody,
-                          keyboardType: TextInputType.multiline,
-                          maxLines: 1,
-                          validator: (val) =>
-                              val!.isEmpty ? 'Post body is required' : null,
-                          decoration: const InputDecoration(
-                              hintText: "Post body...",
-                              border: OutlineInputBorder(
-                                  borderSide:
-                                      BorderSide(width: 1, color: Colors.black38))),
-                        ),
-
-                        const SizedBox(height: 5,),
-
                         const Text("Game Name",
                           style: TextStyle(
                             fontWeight: FontWeight.bold, color: Colors.black87),
@@ -171,33 +154,9 @@ class _PostFormState extends State<PostForm> {
                             border: OutlineInputBorder(),
                             hintText: 'Ex. Mobile Legend',
                           ),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Please enter a title';
-                            }
-                          },
+                         validator: (value) => value!.isEmpty ? 'Invalid Input!' : null,
                         ),
 
-                        const SizedBox(height: 5,),
-
-                        const Text("Owner", style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black87),),
-
-                        TextFormField(
-                          controller: owner,
-                          keyboardType: TextInputType.text,
-                          maxLines: null,
-                          minLines: 1,
-                          decoration: const InputDecoration(
-                            border: OutlineInputBorder(),
-                            hintText: 'Owner of the game',
-                          ),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Please enter the owner of the game';
-                            }
-                          },
-                        ),
 
                         const SizedBox(height: 5,),
 
@@ -221,138 +180,6 @@ class _PostFormState extends State<PostForm> {
                         ),
 
                         const SizedBox(height: 5,),
-
-                        const Text("Category", style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black87),),
-
-                        DropdownButtonFormField(
-                            hint: const Text("Category"),
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                            ),
-
-                            items: const [
-                              DropdownMenuItem(
-                                value: "Action (FPS and TPS)",
-                                child: Text('Action (FPS and TPS)'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'MOBA',
-                                child: Text('MOBA'),
-                              ),
-                              DropdownMenuItem(
-                                value: 'RPG, ARPG,',
-                                child: Text('RPG, ARPG,'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 'Simulation and sports',
-                                child: Text('Simulation and sports'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 'Puzzlers and party games',
-                                child: Text('Puzzlers and party games'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 'Adventure',
-                                child: Text('Adventure'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 'Survival and Horror',
-                                child: Text('Survival and Horror'),
-                              ),
-
-                            ],
-                            onChanged: (value) {
-
-                              category = value.toString();
-                            }
-                        ),
-
-
-                        const SizedBox(height: 5,),
-
-                        const Text("Date Released", style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black87),),
-
-                        DropdownButtonFormField(
-                            hint: const Text("When year was this released?"),
-                            decoration: const InputDecoration(
-                              border: OutlineInputBorder(),
-                            ),
-
-                            items: const [
-                              DropdownMenuItem(
-                                value: 2010,
-                                child: Text('2010'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2011,
-                                child: Text('2011'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2012,
-                                child: Text('2012'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 2013,
-                                child: Text('2013'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 2014,
-                                child: Text('2014'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 2015,
-                                child: Text('2015'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 2016,
-                                child: Text('2016'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 2017,
-                                child: Text('2017'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2018,
-                                child: Text('2018'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 2019,
-                                child: Text('2019'),
-                              ),
-
-                              DropdownMenuItem(
-                                value: 2020,
-                                child: Text('2020'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2021,
-                                child: Text('2021'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2022,
-                                child: Text('2022'),
-                              ),
-                              DropdownMenuItem(
-                                value: 2023,
-                                child: Text('2023'),
-                              ),
-                            ],
-                            onChanged: (value) {
-                              yearReleased = value.toString();
-                            }
-                        ),
 
                         const SizedBox(height: 20,),
 

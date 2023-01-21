@@ -118,6 +118,7 @@ class _CommentScreenState extends State<CommentScreen> {
     return Scaffold(
       appBar: AppBar(
         title: const Text('Comments'),
+        backgroundColor: Colors.green,
       ),
       body: _loading
           ? const Center(
