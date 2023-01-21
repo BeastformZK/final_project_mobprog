@@ -328,4 +328,16 @@ List<GameModel> gameList = [
       year: 2022,
       genre: 'First-Person Shooter',
       ratings: ' Metacritic: 80% | 8/10 IGN. '),
+  GameModel(
+      title: 'Granny',
+      description:
+      'Granny keeps you locked in her house.'
+          'Now you have to try to get out of her house, but be careful and quiet. She hears everything.'
+          'If you drop something on the floor, she hears it and comes running.'
+          'You can hide in wardrobes or under beds. You have 5 days.',
+      imageUrl:
+      "https://wallpaperaccess.com/full/7257003.jpg",
+      year: 2017,
+      genre: 'Survival Horror, Puzzle',
+      ratings: ' Metacritic: 80% | 4.3 stars IGN. '),
 ];

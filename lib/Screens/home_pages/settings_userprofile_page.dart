@@ -17,19 +17,13 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   User? user;
-  User? email;
-  User? details;
-
   bool loading = true;
+
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
-  GlobalKey<FormState> emailKey = GlobalKey<FormState>();
-  GlobalKey<FormState> detailsKey = GlobalKey<FormState>();
 
   File? _imageFile;
   final _picker = ImagePicker();
   TextEditingController txtNameController = TextEditingController();
-  TextEditingController txtEmailController = TextEditingController();
-  TextEditingController txtDetailsController = TextEditingController();
 
   Future getImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
@@ -46,11 +40,8 @@ class _ProfileState extends State<Profile> {
     if (response.error == null) {
       setState(() {
         user = response.data as User;
-        email = response.data as User;
         loading = false;
         txtNameController.text = user!.name ?? '';
-        txtEmailController.text = user!.email ?? '';
-        txtDetailsController.text = user!.details ?? '';
       });
     } else if (response.error == unauthorized) {
       logout().then((value) => {
@@ -59,7 +50,6 @@ class _ProfileState extends State<Profile> {
                 (route) => false)
           });
     } else {
-      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -69,8 +59,6 @@ class _ProfileState extends State<Profile> {
   void updateProfile() async {
     ApiResponse response =
         await updateUser(txtNameController.text, getStringImage(_imageFile));
-    await updateUser(txtEmailController.text, getStringImage(_imageFile));
-    await updateUser(txtDetailsController.text, getStringImage(_imageFile));
     setState(() {
       loading = false;
     });
@@ -85,7 +73,6 @@ class _ProfileState extends State<Profile> {
                 (route) => false)
           });
     } else {
-      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -99,105 +86,81 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      child: loading
-          ? const Center(
-              child: CircularProgressIndicator(),
-            )
-          : Padding(
-              padding: const EdgeInsets.only(top: 40, left: 40, right: 40),
-              child: ListView(
-                children: [
-                  Center(
-                      child: GestureDetector(
-                    child: Container(
-                      width: 110,
-                      height: 110,
-                      decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(60),
-                          image: _imageFile == null
-                              ? user!.image != null
-                                  ? DecorationImage(
-                                      image: NetworkImage('${user!.image}'),
-                                      fit: BoxFit.cover)
-                                  : null
-                              : DecorationImage(
-                                  image: FileImage(_imageFile ?? File('')),
-                                  fit: BoxFit.cover),
-                          color: Colors.purple),
-                    ),
-                    onTap: () {
-                      getImage();
-                    },
-                  )),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Form(
-                    key: formKey,
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                          labelText: 'Name',
-                          contentPadding: EdgeInsets.all(10),
-                          border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 50, color: Colors.black))),
-                      controller: txtNameController,
-                      validator: (val) => val!.isEmpty ? 'Invalid Name' : null,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Form(
-                    key: emailKey,
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                          labelText: 'Email',
-                          contentPadding: EdgeInsets.all(10),
-                          border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 50, color: Colors.black))),
-                      controller: txtEmailController,
-                      validator: (val) => val!.isEmpty ? 'Invalid Email' : null,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  Form(
-                    key: detailsKey,
-                    child: TextFormField(
-                      decoration: const InputDecoration(
-                          labelText: 'Details',
-                          contentPadding: EdgeInsets.all(10),
-                          border: OutlineInputBorder(
-                              borderSide:
-                                  BorderSide(width: 50, color: Colors.black))),
-                      controller: txtDetailsController,
-                      validator: (val) =>
-                          val!.isEmpty ? 'Invalid details' : null,
-                    ),
-                  ),
-                  const SizedBox(
-                    height: 20,
-                  ),
-                  ElevatedButton(
-                      onPressed: () {
-                        if (formKey.currentState!.validate()) {
-                          setState(() {
-                            loading = true;
-                          });
-                          updateProfile();
-                        }
-                      },
-                      style: ElevatedButton.styleFrom(
-                        backgroundColor: Colors.green,
+    return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.green,
+        elevation: 10,
+        title: const Text('Game Blog', style: TextStyle(color: Colors.white)),
+      ),
+      body: Container(
+          child: loading
+              ? const Center(
+                  child: CircularProgressIndicator(),
+                )
+              : Padding(
+                  padding: const EdgeInsets.only(top: 40, left: 40, right: 40),
+                  child: ListView(
+                    children: [
+                      const SizedBox(height: 60),
+                      Center(
+                          child: GestureDetector(
+                        child: Container(
+                          width: 200,
+                          height: 200,
+                          decoration: BoxDecoration(
+                              borderRadius: BorderRadius.circular(20),
+                              image: _imageFile == null
+                                  ? user!.image != null
+                                      ? DecorationImage(
+                                          image: NetworkImage('${user!.image}'),
+                                          fit: BoxFit.cover)
+                                      : null
+                                  : DecorationImage(
+                                      image: FileImage(_imageFile ?? File('')),
+                                      fit: BoxFit.cover),
+                              color: Colors.purple),
+                        ),
+                        onTap: () {
+                          getImage();
+                        },
+                      )),
+                      const SizedBox(
+                        height: 60,
                       ),
-                      child: const Text('Update Gamer'))
-                ],
-              ),
-            ),
+                      Form(
+                        key: formKey,
+                        child: TextFormField(
+                          decoration: const InputDecoration(
+                              labelText: 'Name',
+                              contentPadding: EdgeInsets.all(20),
+                              border: OutlineInputBorder(
+                                  borderSide: BorderSide(
+                                      width: 50, color: Colors.black))),
+                          controller: txtNameController,
+                          validator: (val) =>
+                              val!.isEmpty ? 'Invalid Name' : null,
+                        ),
+                      ),
+                      const SizedBox(
+                        height: 20,
+                      ),
+                      ElevatedButton(
+                          onPressed: () {
+                            if (formKey.currentState!.validate()) {
+                              setState(() {
+                                loading = true;
+                              });
+                              updateProfile();
+                            }
+                          },
+                          style: ElevatedButton.styleFrom(
+                            backgroundColor: Colors.green,
+                          ),
+                          child: const Text('Update Gamer'))
+                    ],
+                  ),
+                ),
+        ),
     );
   }
 }

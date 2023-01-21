@@ -26,21 +26,15 @@ class NavigationDrawerPage extends StatelessWidget {
       );
 
   Widget buildHeader(BuildContext context) => Container(
-        color: Colors.green,
+        color: Colors.teal,
         padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
         child: Column(
           /// remove const if applying data
           children: const [
             CircleAvatar(
               radius: 52,
-
-              /// insert background image, and change the 'Network Image' to 'Image chu chu'
-              backgroundImage: NetworkImage(
-                  "https://yt3.ggpht.com/ytc/AMLnZu_OGABXJQKwb7LWeP-ZerUdG0W-rkOvJlhGZ94-2g=s900-c-k-c0x00ffffff-no-rj"),
+              child: Image(image: AssetImage('assets/background_logo.png')),
             ),
-            SizedBox(height: 12),
-            Text('Account Name', style: TextStyle(color: Colors.white)),
-            Text('Account Email', style: TextStyle(color: Colors.white)),
             SizedBox(height: 12)
           ],
         ),
@@ -53,14 +47,6 @@ class NavigationDrawerPage extends StatelessWidget {
             ListTile(
               leading: const Icon(Icons.account_circle_rounded),
               title: const Text('Game Profile'),
-              onTap: () {
-                Navigator.push(context,
-                    MaterialPageRoute(builder: (context) => const Profile()));
-              },
-            ),
-            ListTile(
-              leading: const Icon(Icons.library_books),
-              title: const Text('Edit User Profile'),
               onTap: () {
                 Navigator.push(context,
                     MaterialPageRoute(builder: (context) => const Profile()));
