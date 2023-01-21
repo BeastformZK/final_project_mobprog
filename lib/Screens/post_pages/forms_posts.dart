@@ -95,7 +95,8 @@ class _PostFormState extends State<PostForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.title}',
+        title: Text(
+          '${widget.title}',
           style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.green,
@@ -130,7 +131,6 @@ class _PostFormState extends State<PostForm> {
                           ),
                         ),
                       ),
-
                 Form(
                   key: _formKey,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -138,13 +138,15 @@ class _PostFormState extends State<PostForm> {
                     padding: const EdgeInsets.all(8),
                     child: Column(
                       children: [
-                        const SizedBox(height: 5,),
-
-                        const Text("Game Name",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black87),
+                        const SizedBox(
+                          height: 5,
                         ),
-
+                        const Text(
+                          "Game Name",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
+                        ),
                         TextFormField(
                           controller: title,
                           keyboardType: TextInputType.text,
@@ -154,15 +156,18 @@ class _PostFormState extends State<PostForm> {
                             border: OutlineInputBorder(),
                             hintText: 'Ex. Mobile Legend',
                           ),
-                         validator: (value) => value!.isEmpty ? 'Invalid Input!' : null,
+                          validator: (value) =>
+                              value!.isEmpty ? 'Invalid Input!' : null,
                         ),
-
-
-                        const SizedBox(height: 5,),
-
-                        const Text("Description", style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black87),),
-
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const Text(
+                          "Description",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
+                        ),
                         TextFormField(
                           controller: description,
                           keyboardType: TextInputType.text,
@@ -178,31 +183,27 @@ class _PostFormState extends State<PostForm> {
                             }
                           },
                         ),
-
-                        const SizedBox(height: 5,),
-
-                        const SizedBox(height: 20,),
-
-
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const SizedBox(
+                          height: 20,
+                        ),
                       ],
                     ),
                   ),
                 ),
-
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: SizedBox(
                       child: ElevatedButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.green),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.green),
                             shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                )
-                            )
-                        ),
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             setState(() {

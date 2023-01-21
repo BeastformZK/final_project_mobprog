@@ -127,7 +127,7 @@ class _PostScreenState extends State<PostScreen> {
                                   Text(
                                     '${post.user!.name}',
                                     style: const TextStyle(
-                                      color: Colors.black,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 17),
                                   )
@@ -177,17 +177,16 @@ class _PostScreenState extends State<PostScreen> {
                           width: double.infinity,
                           height: 70,
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.transparent, width: 2),
+                            border:
+                                Border.all(color: Colors.transparent, width: 2),
                             borderRadius: BorderRadius.circular(10),
                           ),
                           child: SizedBox(
                             child: Text(' ${post.body}',
                                 style: const TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 20)),
+                                    color: Colors.black, fontSize: 20)),
                           ),
                         ),
-
                         post.image != null
                             ? Container(
                                 width: MediaQuery.of(context).size.width,
