@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:shared_preferences/shared_preferences.dart';
-
 import '../../Models/models_users.dart';
 import '../../models/api_response.dart';
 import '../../services_app/service_users.dart';
@@ -34,8 +33,7 @@ class _LoginWidgetState extends State<LoginWidget> {
       });
       // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
-          .showSnackBar(SnackBar(content: Text('${response.error}'))
-      );
+          .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
   }
 
@@ -45,11 +43,8 @@ class _LoginWidgetState extends State<LoginWidget> {
     await pref.setInt('userId', user.id ?? 0);
     // ignore: use_build_context_synchronously
     Navigator.of(context).pushAndRemoveUntil(
-        MaterialPageRoute(
-            builder: (context) => const Homepage()
-        ),
-        (route) => false
-    );
+        MaterialPageRoute(builder: (context) => const Homepage()),
+        (route) => false);
   }
 
   @override
@@ -76,8 +71,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       child: SizedBox(
                         height: 200,
                         child: Image(
-                            image: AssetImage('assets/background_logo.png')
-                        ),
+                            image: AssetImage('assets/background_logo.png')),
                       ),
                     ),
                     const SizedBox(height: 10),
@@ -86,8 +80,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                       style: TextStyle(
                           fontWeight: FontWeight.bold,
                           fontSize: 40,
-                          color: Colors.white
-                      ),
+                          color: Colors.white),
                     ),
                     const SizedBox(height: 20),
                     Padding(
@@ -108,8 +101,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                             decoration: const InputDecoration(
                                 labelText: 'Email',
                                 border: InputBorder.none,
-                                icon: Icon(Icons.alternate_email_outlined)
-                            ),
+                                icon: Icon(Icons.alternate_email_outlined)),
                           ),
                         ),
                       ),
@@ -141,8 +133,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       passwordVisible
                                           ? Icons.visibility
                                           : Icons.visibility_off,
-                                      color: Colors.grey
-                                  ),
+                                      color: Colors.grey),
                                   onPressed: () {
                                     setState(() {
                                       passwordVisible = !passwordVisible;
@@ -150,8 +141,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                   },
                                 ),
                               ),
-                            )
-                        ),
+                            )),
                       ),
                     ),
                     const SizedBox(height: 20),
@@ -166,9 +156,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                     backgroundColor: Colors.lightGreen,
                                     shape: RoundedRectangleBorder(
                                         borderRadius:
-                                            BorderRadius.circular(20)
-                                    )
-                                ),
+                                            BorderRadius.circular(20))),
                                 icon: const Icon(
                                   Icons.login,
                                   size: 30,
@@ -177,9 +165,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                 label: const Text(
                                   'Sign in',
                                   style: TextStyle(
-                                      fontSize: 15,
-                                      color: Colors.black54
-                                  ),
+                                      fontSize: 15, color: Colors.black54),
                                 ),
                                 onPressed: () {
                                   if (formKey.currentState!.validate()) {
@@ -188,8 +174,7 @@ class _LoginWidgetState extends State<LoginWidget> {
                                       _loginUser();
                                     });
                                   }
-                                }
-                            ),
+                                }),
                           ),
                     const SizedBox(height: 10),
                     Row(
@@ -197,20 +182,15 @@ class _LoginWidgetState extends State<LoginWidget> {
                       children: [
                         const Text(
                           'Not a Member? ',
-                          style: TextStyle(
-                              fontSize: 17,
-                              color: Colors.white
-                          ),
+                          style: TextStyle(fontSize: 17, color: Colors.white),
                         ),
                         GestureDetector(
                           onTap: () {
                             Navigator.of(context).pushAndRemoveUntil(
                                 MaterialPageRoute(
                                     builder: (context) =>
-                                        const RegisterWidget()
-                                ),
-                                (route) => false
-                            );
+                                        const RegisterWidget()),
+                                (route) => false);
                           },
                           child: const Text(
                             'Sign Up',
@@ -224,11 +204,9 @@ class _LoginWidgetState extends State<LoginWidget> {
                         )
                       ],
                     )
-                  ]
-              ),
+                  ]),
             ),
           ),
-        )
-    );
+        ));
   }
 }

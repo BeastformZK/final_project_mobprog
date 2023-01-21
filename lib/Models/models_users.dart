@@ -6,7 +6,7 @@ class User {
   String? details;
   String? token;
 
-  User({this.id, this.name, this.image, this.email,this.details, this.token});
+  User({this.id, this.name, this.image, this.email, this.details, this.token});
 
   // function to convert json data to user model
   factory User.fromJson(Map<String, dynamic> json) {
