@@ -47,26 +47,23 @@ class _LoginWidgetState extends State<LoginWidget> {
         (route) => false);
   }
 
-  Future _storagePermission() async {
-    PermissionStatus storageStatus = await Permission.storage.request();
+  Future _UserPermission() async {
+    Map<Permission, PermissionStatus> statuses = await [
+      Permission.storage,
+      Permission.camera,
+    ].request();
 
-    if (storageStatus == PermissionStatus.granted) {
-      const LoginWidget();
+    if(statuses[Permission.storage]!.isDenied){ //check permission
+      openAppSettings();
     }
-
-    if (storageStatus == PermissionStatus.denied) {
-      ScaffoldMessenger.of(context).showSnackBar(
-          const SnackBar(content: Text("This permission is required")));
-    }
-
-    if (storageStatus == PermissionStatus.permanentlyDenied) {
+    if(statuses[Permission.camera]!.isDenied){ //check permission
       openAppSettings();
     }
   }
 
   @override
   void initState() {
-    _storagePermission();
+    _UserPermission();
     super.initState();
     passwordVisible = false;
     Future.delayed(const Duration(seconds: 5))
