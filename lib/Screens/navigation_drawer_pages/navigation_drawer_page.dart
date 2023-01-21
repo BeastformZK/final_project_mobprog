@@ -1,11 +1,17 @@
 import 'package:flutter/material.dart';
-
+import 'package:permission_handler/permission_handler.dart';
 import '../../services_app/service_users.dart';
 import '../authentication_pages/login_page.dart';
 import '../home_pages/settings_userprofile_page.dart';
+import '../library_pages/library_page.dart';
 
 class NavigationDrawerPage extends StatelessWidget {
   const NavigationDrawerPage({Key? key}) : super(key: key);
+
+  /// PERMISSION FUNCTIONS
+  void openPermissionSettings() async {
+    openAppSettings();
+  }
 
   @override
   Widget build(BuildContext context) => Drawer(
@@ -54,11 +60,23 @@ class NavigationDrawerPage extends StatelessWidget {
               },
             ),
             ListTile(
-              leading: const Icon(Icons.settings),
-              title: const Text('App Permission'),
-              onTap: () {},
+              leading: const Icon(Icons.library_books),
+              title: const Text('Library'),
+              onTap: () {
+                Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                        builder: (context) => const LibraryPage()));
+              },
             ),
             const Divider(color: Colors.black54),
+            ListTile(
+              leading: const Icon(Icons.settings),
+              title: const Text('App Permission'),
+              onTap: () {
+                openPermissionSettings();
+              },
+            ),
             ListTile(
               leading: const Icon(Icons.exit_to_app),
               title: const Text('Log-out'),
