@@ -5,7 +5,6 @@ import '../constant_variables/constants.dart';
 import '../models/api_response.dart';
 import 'service_users.dart';
 
-// Radaza
 
 // get all posts
 Future<ApiResponse> getPosts() async {
@@ -39,7 +38,7 @@ Future<ApiResponse> getPosts() async {
 }
 
 // Create post
-Future<ApiResponse> createPost(String body, String? image) async {
+Future<ApiResponse> createPost(String body, String? image, String description) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     String token = await getToken();
@@ -48,7 +47,17 @@ Future<ApiResponse> createPost(String body, String? image) async {
           'Accept': 'application/json',
           'Authorization': 'Bearer $token'
         },
-        body: image != null ? {'body': body, 'image': image} : {'body': body});
+        body: image != null ? {
+          'body': body,
+          'image': image,
+          'description': description
+    }
+            :
+        {
+          'body': body,
+          'description': description
+        }
+        );
 
     // here if the image is null we just send the body, if not null we send the image too
 
@@ -75,7 +84,7 @@ Future<ApiResponse> createPost(String body, String? image) async {
 }
 
 // Edit post
-Future<ApiResponse> editPost(int postId, String body) async {
+Future<ApiResponse> editPost(int postId, String body, String description) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     String token = await getToken();
@@ -83,8 +92,10 @@ Future<ApiResponse> editPost(int postId, String body) async {
       'Accept': 'application/json',
       'Authorization': 'Bearer $token'
     }, body: {
-      'body': body
-    });
+      'body': body,
+      'description': description
+    }
+    );
 
     switch (response.statusCode) {
       case 200:

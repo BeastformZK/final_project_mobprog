@@ -8,7 +8,6 @@ import '../../services_app/service_post.dart';
 import '../../services_app/service_users.dart';
 import '../authentication_pages/login_page.dart';
 
-// Tibudan, Chelsea Shaira E.
 
 class PostForm extends StatefulWidget {
   final Post? post;
@@ -22,13 +21,9 @@ class PostForm extends StatefulWidget {
 
 class _PostFormState extends State<PostForm> {
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
-  final TextEditingController _txtControllerBody = TextEditingController();
-  TextEditingController title = TextEditingController();
-  TextEditingController description = TextEditingController();
-  TextEditingController owner = TextEditingController();
-  var category = '';
-  var yearReleased = '';
-  var alreadyPlayed = '';
+  final TextEditingController _title = TextEditingController();
+  final TextEditingController _description = TextEditingController();
+
   bool _loading = false;
   File? _imageFile;
   final _picker = ImagePicker();
@@ -44,7 +39,7 @@ class _PostFormState extends State<PostForm> {
 
   void _createPost() async {
     String? image = _imageFile == null ? null : getStringImage(_imageFile);
-    ApiResponse response = await createPost(_txtControllerBody.text, image);
+    ApiResponse response = await createPost(_title.text, image, _description.text);
 
     if (response.error == null) {
       Navigator.of(context).pop();
@@ -65,7 +60,7 @@ class _PostFormState extends State<PostForm> {
 
   // edit post
   void _editPost(int postId) async {
-    ApiResponse response = await editPost(postId, _txtControllerBody.text);
+    ApiResponse response = await editPost(postId, _title.text, _description.text);
     if (response.error == null) {
       Navigator.of(context).pop();
     } else if (response.error == unauthorized) {
@@ -86,7 +81,7 @@ class _PostFormState extends State<PostForm> {
   @override
   void initState() {
     if (widget.post != null) {
-      _txtControllerBody.text = widget.post!.body ?? '';
+      _title.text = widget.post!.body ?? '';
     }
     super.initState();
   }
@@ -146,7 +141,7 @@ class _PostFormState extends State<PostForm> {
                         ),
 
                         TextFormField(
-                          controller: title,
+                          controller: _title,
                           keyboardType: TextInputType.text,
                           maxLines: null,
                           minLines: 1,
@@ -164,7 +159,7 @@ class _PostFormState extends State<PostForm> {
                             fontWeight: FontWeight.bold, color: Colors.black87),),
 
                         TextFormField(
-                          controller: description,
+                          controller: _description,
                           keyboardType: TextInputType.text,
                           maxLines: null,
                           minLines: 3,
@@ -180,9 +175,6 @@ class _PostFormState extends State<PostForm> {
                         ),
 
                         const SizedBox(height: 5,),
-
-                        const SizedBox(height: 20,),
-
 
                       ],
                     ),
