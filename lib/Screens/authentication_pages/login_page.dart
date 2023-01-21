@@ -47,20 +47,19 @@ class _LoginWidgetState extends State<LoginWidget> {
         (route) => false);
   }
 
-  Future _storagePermission() async{
-    PermissionStatus storageStatus =
-    await Permission.storage.request();
+  Future _storagePermission() async {
+    PermissionStatus storageStatus = await Permission.storage.request();
 
-    if (storageStatus == PermissionStatus.granted){
+    if (storageStatus == PermissionStatus.granted) {
       const LoginWidget();
     }
 
-    if (storageStatus == PermissionStatus.denied){
-      ScaffoldMessenger.of(context)
-          .showSnackBar(const SnackBar(content: Text("This permission is required")));
+    if (storageStatus == PermissionStatus.denied) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("This permission is required")));
     }
 
-    if (storageStatus == PermissionStatus.permanentlyDenied){
+    if (storageStatus == PermissionStatus.permanentlyDenied) {
       openAppSettings();
     }
   }
@@ -73,7 +72,6 @@ class _LoginWidgetState extends State<LoginWidget> {
     Future.delayed(const Duration(seconds: 5))
         .then((value) => {FlutterNativeSplash.remove()});
   }
-
 
   @override
   Widget build(BuildContext context) {

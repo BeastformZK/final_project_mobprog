@@ -5,7 +5,6 @@ import '../../services_app/service_users.dart';
 import '../home_pages/home_page.dart';
 import 'login_page.dart';
 
-
 class Loading extends StatefulWidget {
   const Loading({super.key});
 
@@ -18,30 +17,23 @@ class _LoadingState extends State<Loading> {
   void _loadUserInfo() async {
     String token = await getToken();
     if (token == '') {
-
       // ignore: use_build_context_synchronously
       Navigator.of(context).pushAndRemoveUntil(
           MaterialPageRoute(builder: (context) => const LoginWidget()),
           (route) => false);
-    }
-
-    else {
+    } else {
       ApiResponse response = await getUserDetail();
       if (response.error == null) {
         // ignore: use_build_context_synchronously
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => const Homepage()),
             (route) => false);
-      }
-
-      else if (response.error == unauthorized) {
+      } else if (response.error == unauthorized) {
         // ignore: use_build_context_synchronously
         Navigator.of(context).pushAndRemoveUntil(
             MaterialPageRoute(builder: (context) => const LoginWidget()),
             (route) => false);
-      }
-
-      else {
+      } else {
         // ignore: use_build_context_synchronously
         ScaffoldMessenger.of(context).showSnackBar(SnackBar(
           content: Text('${response.error}'),

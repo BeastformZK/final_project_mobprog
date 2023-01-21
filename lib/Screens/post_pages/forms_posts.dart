@@ -9,7 +9,6 @@ import '../../services_app/service_post.dart';
 import '../../services_app/service_users.dart';
 import '../authentication_pages/login_page.dart';
 
-
 class PostForm extends StatefulWidget {
   final Post? post;
   final String? title;
@@ -30,34 +29,29 @@ class _PostFormState extends State<PostForm> {
   final _picker = ImagePicker();
 
   Future getImage() async {
+    PermissionStatus storageStatus = await Permission.storage.request();
 
-      PermissionStatus storageStatus =
-      await Permission.storage.request();
-
-      if (storageStatus == PermissionStatus.granted){
-        final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-        setState(() {
-          _imageFile = File(pickedFile!.path);
-        }
-        );
-      }
-
-      if (storageStatus == PermissionStatus.denied){
-        ScaffoldMessenger.of(context)
-            .showSnackBar(const SnackBar(content: Text("This permission is required")));
-      }
-
-      if (storageStatus == PermissionStatus.permanentlyDenied){
-        openAppSettings();
-      }
-
-
+    if (storageStatus == PermissionStatus.granted) {
+      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
+      setState(() {
+        _imageFile = File(pickedFile!.path);
+      });
     }
 
+    if (storageStatus == PermissionStatus.denied) {
+      ScaffoldMessenger.of(context).showSnackBar(
+          const SnackBar(content: Text("This permission is required")));
+    }
+
+    if (storageStatus == PermissionStatus.permanentlyDenied) {
+      openAppSettings();
+    }
+  }
 
   void _createPost() async {
     String? image = _imageFile == null ? null : getStringImage(_imageFile);
-    ApiResponse response = await createPost(_title.text, image, _description.text);
+    ApiResponse response =
+        await createPost(_title.text, image, _description.text);
 
     if (response.error == null) {
       Navigator.of(context).pop();
@@ -78,7 +72,8 @@ class _PostFormState extends State<PostForm> {
 
   // edit post
   void _editPost(int postId) async {
-    ApiResponse response = await editPost(postId, _title.text, _description.text);
+    ApiResponse response =
+        await editPost(postId, _title.text, _description.text);
     if (response.error == null) {
       Navigator.of(context).pop();
     } else if (response.error == unauthorized) {
@@ -112,7 +107,8 @@ class _PostFormState extends State<PostForm> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('${widget.title}',
+        title: Text(
+          '${widget.title}',
           style: const TextStyle(
             fontWeight: FontWeight.bold,
             color: Colors.green,
@@ -147,7 +143,6 @@ class _PostFormState extends State<PostForm> {
                           ),
                         ),
                       ),
-
                 Form(
                   key: _formKey,
                   autovalidateMode: AutovalidateMode.onUserInteraction,
@@ -155,13 +150,15 @@ class _PostFormState extends State<PostForm> {
                     padding: const EdgeInsets.all(8),
                     child: Column(
                       children: [
-                        const SizedBox(height: 5,),
-
-                        const Text("Game Name",
-                          style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black87),
+                        const SizedBox(
+                          height: 5,
                         ),
-
+                        const Text(
+                          "Game Name",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
+                        ),
                         TextFormField(
                           controller: _title,
                           keyboardType: TextInputType.text,
@@ -171,15 +168,18 @@ class _PostFormState extends State<PostForm> {
                             border: OutlineInputBorder(),
                             hintText: 'Ex. Mobile Legend',
                           ),
-                         validator: (value) => value!.isEmpty ? 'Invalid Input!' : null,
+                          validator: (value) =>
+                              value!.isEmpty ? 'Please add title!' : null,
                         ),
-
-
-                        const SizedBox(height: 5,),
-
-                        const Text("Description", style: TextStyle(
-                            fontWeight: FontWeight.bold, color: Colors.black87),),
-
+                        const SizedBox(
+                          height: 5,
+                        ),
+                        const Text(
+                          "Description",
+                          style: TextStyle(
+                              fontWeight: FontWeight.bold,
+                              color: Colors.black87),
+                        ),
                         TextFormField(
                           controller: _description,
                           keyboardType: TextInputType.text,
@@ -189,34 +189,27 @@ class _PostFormState extends State<PostForm> {
                             border: OutlineInputBorder(),
                             hintText: "What's on this game? ",
                           ),
-                          validator: (value) {
-                            if (value!.isEmpty) {
-                              return 'Please enter a description';
-                            }
-                          },
+                          validator: (value) =>
+                              value!.isEmpty ? 'Please add Description!' : null,
                         ),
-
-                        const SizedBox(height: 5,),
-
+                        const SizedBox(
+                          height: 5,
+                        ),
                       ],
                     ),
                   ),
                 ),
-
                 Padding(
                     padding: const EdgeInsets.symmetric(horizontal: 8),
                     child: SizedBox(
                       child: ElevatedButton(
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.green),
+                            backgroundColor:
+                                MaterialStateProperty.all(Colors.green),
                             shape: MaterialStateProperty.all<
-                                RoundedRectangleBorder>(
-                                RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18.0),
-                                )
-                            )
-                        ),
+                                RoundedRectangleBorder>(RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(18.0),
+                            ))),
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
                             setState(() {

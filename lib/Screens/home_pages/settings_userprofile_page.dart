@@ -25,7 +25,6 @@ class _ProfileState extends State<Profile> {
   GlobalKey<FormState> emailKey = GlobalKey<FormState>();
   GlobalKey<FormState> detailsKey = GlobalKey<FormState>();
 
-
   File? _imageFile;
   final _picker = ImagePicker();
   TextEditingController txtNameController = TextEditingController();
@@ -70,8 +69,8 @@ class _ProfileState extends State<Profile> {
   void updateProfile() async {
     ApiResponse response =
         await updateUser(txtNameController.text, getStringImage(_imageFile));
-        await updateUser(txtEmailController.text, getStringImage(_imageFile));
-        await updateUser(txtDetailsController.text, getStringImage(_imageFile));
+    await updateUser(txtEmailController.text, getStringImage(_imageFile));
+    await updateUser(txtDetailsController.text, getStringImage(_imageFile));
     setState(() {
       loading = false;
     });
@@ -158,7 +157,7 @@ class _ProfileState extends State<Profile> {
                           contentPadding: EdgeInsets.all(10),
                           border: OutlineInputBorder(
                               borderSide:
-                              BorderSide(width: 50, color: Colors.black))),
+                                  BorderSide(width: 50, color: Colors.black))),
                       controller: txtEmailController,
                       validator: (val) => val!.isEmpty ? 'Invalid Email' : null,
                     ),
@@ -174,9 +173,10 @@ class _ProfileState extends State<Profile> {
                           contentPadding: EdgeInsets.all(10),
                           border: OutlineInputBorder(
                               borderSide:
-                              BorderSide(width: 50, color: Colors.black))),
+                                  BorderSide(width: 50, color: Colors.black))),
                       controller: txtDetailsController,
-                      validator: (val) => val!.isEmpty ? 'Invalid details' : null,
+                      validator: (val) =>
+                          val!.isEmpty ? 'Invalid details' : null,
                     ),
                   ),
                   const SizedBox(

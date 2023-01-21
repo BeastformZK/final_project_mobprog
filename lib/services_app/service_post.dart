@@ -5,7 +5,6 @@ import '../constant_variables/constants.dart';
 import '../models/api_response.dart';
 import 'service_users.dart';
 
-
 // get all posts
 Future<ApiResponse> getPosts() async {
   ApiResponse apiResponse = ApiResponse();
@@ -38,7 +37,8 @@ Future<ApiResponse> getPosts() async {
 }
 
 // Create post
-Future<ApiResponse> createPost(String title, String? image, String description) async {
+Future<ApiResponse> createPost(
+    String title, String? image, String description) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     String token = await getToken();
@@ -47,17 +47,9 @@ Future<ApiResponse> createPost(String title, String? image, String description) 
           'Accept': 'application/json',
           'Authorization': 'Bearer $token'
         },
-        body: image != null ? {
-          'title': title,
-          'image': image,
-          'description': description
-    }
-            :
-        {
-          'title': title,
-          'description': description
-        }
-        );
+        body: image != null
+            ? {'title': title, 'image': image, 'description': description}
+            : {'title': title, 'description': description});
 
     // here if the image is null we just send the body, if not null we send the image too
 
@@ -84,7 +76,8 @@ Future<ApiResponse> createPost(String title, String? image, String description) 
 }
 
 // Edit post
-Future<ApiResponse> editPost(int postId, String title, String description) async {
+Future<ApiResponse> editPost(
+    int postId, String title, String description) async {
   ApiResponse apiResponse = ApiResponse();
   try {
     String token = await getToken();
@@ -94,8 +87,7 @@ Future<ApiResponse> editPost(int postId, String title, String description) async
     }, body: {
       'title': title,
       'description': description
-    }
-    );
+    });
 
     switch (response.statusCode) {
       case 200:

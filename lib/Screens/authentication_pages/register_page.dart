@@ -6,7 +6,6 @@ import '../../services_app/service_users.dart';
 import '../home_pages/home_page.dart';
 import 'login_page.dart';
 
-
 class RegisterWidget extends StatefulWidget {
   const RegisterWidget({Key? key}) : super(key: key);
 

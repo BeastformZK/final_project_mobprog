@@ -4,7 +4,6 @@ import '../navigation_drawer_pages/navigation_drawer_page.dart';
 import '../post_pages/forms_posts.dart';
 import '../post_pages/post_screen_data.dart';
 
-
 class Homepage extends StatefulWidget {
   const Homepage({super.key});
 
@@ -53,9 +52,7 @@ class _HomepageState extends State<Homepage> {
                 label: 'Game Home',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person),
-                  label: 'Game Library'
-              )
+                  icon: Icon(Icons.person), label: 'Game Library')
             ],
             currentIndex: currentIndex,
             onTap: (val) {

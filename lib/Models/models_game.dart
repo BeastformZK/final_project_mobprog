@@ -230,7 +230,8 @@ List<GameModel> gameList = [
           'Red Dead Redemption is a 2010 western-themed, action-adventure video game developed by Rockstar San Diego and Rockstar North and published by Rockstar Games. '
           'It is the second game of the Red Dead series and was released for the PlayStation 3 and Xbox 360 on May 18, 2010, '
           'in North America, and three days later on May 21, 2010, in Europe.',
-      imageUrl: "https://m.media-amazon.com/images/M/MV5BODQ1YzU4MmMtYmE0YS00NTRjLWE4YWMtZWNiNzM4M2ZkMzcxXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg",
+      imageUrl:
+          "https://m.media-amazon.com/images/M/MV5BODQ1YzU4MmMtYmE0YS00NTRjLWE4YWMtZWNiNzM4M2ZkMzcxXkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg",
       year: 2010,
       genre: 'Third-person shooter, action-adventure, western',
       ratings: ' Metacritic: 95% | 9.7/10 IGN. '),
@@ -240,7 +241,8 @@ List<GameModel> gameList = [
           'Grand Theft Auto: San Andreas is a Rockstar North-developed video game released on 26th October 2004 by Rockstar Games, and is the seventh title in the Grand Theft Auto series and the third game in the 3D Universe of the series. '
           'It is the sequel to Grand Theft Auto: Vice City and the prequel to Grand Theft Auto: Liberty City Stories and Grand Theft Auto III.'
           'It was released on the same date as Grand Theft Auto Advance. GTA San Andreas is set in the fictional state of San Andreas.',
-      imageUrl: "https://m.media-amazon.com/images/M/MV5BMTAyYWYyOTMtNmUzNS00NzNjLTkyZTUtZjhlZjMzYzJmNzM5XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg",
+      imageUrl:
+          "https://m.media-amazon.com/images/M/MV5BMTAyYWYyOTMtNmUzNS00NzNjLTkyZTUtZjhlZjMzYzJmNzM5XkEyXkFqcGdeQXVyNTgyNTA4MjM@._V1_FMjpg_UX1000_.jpg",
       year: 2005,
       genre: 'Action, Open world, Gambling/casino',
       ratings: ' Metacritic: 93% | 9.6/10 IGN. '),
@@ -260,9 +262,11 @@ List<GameModel> gameList = [
           'Elden Ring is a dark fantasy RPG that lets you play one of the descendants of the Tarnished. '
           'An outcast, you must enter the Lands Between to try to gain re-admittance to the society there as an Elden Lord. '
           'To do that, you must reveal the mystery of the fabled Elden Ring. Your adventures in the Lands Between will teem with threats and brim with unknown.',
-      imageUrl: "https://static.wikia.nocookie.net/eldenring/images/d/d6/MP-Key-Art.jpg/revision/latest?cb=20220223180331",
+      imageUrl:
+          "https://static.wikia.nocookie.net/eldenring/images/d/d6/MP-Key-Art.jpg/revision/latest?cb=20220223180331",
       year: 2022,
-      genre: 'Adventure game, Action role-playing game, Fighting game, Platform game',
+      genre:
+          'Adventure game, Action role-playing game, Fighting game, Platform game',
       ratings: ' Metacritic: 96% | 10/10 IGN. '),
   GameModel(
       title: 'Stray',
@@ -270,11 +274,11 @@ List<GameModel> gameList = [
           'Stray is a third-person cat adventure game set amidst the detailed, '
           'neon-lit alleys of a decaying cybercity and the murky environments of its seedy underbelly. '
           'Roam surroundings high and low, defend against unforeseen threats and solve the mysteries of this unwelcoming place inhabited by curious droids and dangerous creatures.',
-      imageUrl: "https://static.wikia.nocookie.net/stray/images/0/07/Stray.png/revision/latest?cb=20220310061247",
+      imageUrl:
+          "https://static.wikia.nocookie.net/stray/images/0/07/Stray.png/revision/latest?cb=20220310061247",
       year: 2022,
       genre: 'Adventure game, Indie game, Puzzle, Simulation video game',
       ratings: ' Metacritic: 83% | 8/10 IGN. '),
-
   GameModel(
       title: 'HALF LIFE 2',
       description:
@@ -283,11 +287,11 @@ List<GameModel> gameList = [
           'The player again picks up the crowbar of research scientist Gordon Freeman, who finds himself '
           'on an alien-infested Earth being picked to the bone, its resources depleted, its populace dwindling. '
           'Freeman is thrust into the unenviable role of rescuing the world from the wrong he unleashed back at Black Mesa. And a lot of people -- people he cares about -- are counting on him. ',
-      imageUrl: "https://s2.gaming-cdn.com/images/products/2284/orig/half-life-2-pc-mac-game-steam-cover.jpg?v=1650555068",
+      imageUrl:
+          "https://s2.gaming-cdn.com/images/products/2284/orig/half-life-2-pc-mac-game-steam-cover.jpg?v=1650555068",
       year: 2004,
       genre: 'Action, Shooter, Shooter, First-Person, Sci-Fi, Sci-Fi, Arcade',
       ratings: ' Metacritic: 91% | 9.2/10 IGN. '),
-
   GameModel(
       title: 'DISCO ELYSIUM: THE FINAL CUT',
       description:
@@ -295,11 +299,11 @@ List<GameModel> gameList = [
           'Full voice-acting, controller support, and expanded language options also included. Get even more out of this award-winning open world. '
           'You are a detective with a unique skill system at your disposal and a whole city block to carve your path across. Interrogate unforgettable characters, crack murders, or take bribes. '
           'Become a hero or an absolute disaster of a human being.',
-      imageUrl: "https://cdn.akamai.steamstatic.com/steam/apps/632470/header.jpg?t=1667483149",
+      imageUrl:
+          "https://cdn.akamai.steamstatic.com/steam/apps/632470/header.jpg?t=1667483149",
       year: 2021,
       genre: 'Role-Playing, General, Western-Style',
       ratings: ' Metacritic: 83% | 8.3/10 IGN. '),
-
   GameModel(
       title: 'GRAND THEFT AUTO V',
       description:
@@ -307,11 +311,11 @@ List<GameModel> gameList = [
           'now struggling to stay alive in a time of economic uncertainty and cheap reality TV. Amidst the turmoil, three very unique criminals plot their own chances of survival and success: '
           'Franklin, a street hustler looking for tangible opportunities and serious money; Michael, a professional ex-con whose retirement is less rosy than he figured it would be; '
           'and Trevor, a violent dude driven by the opportunity for a cheap high and his next big score. With options at a premium, the crew risks it all in a myriad of daring and dangerous heists that could set them up for life.',
-      imageUrl: "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg?t=1671485100",
+      imageUrl:
+          "https://cdn.cloudflare.steamstatic.com/steam/apps/271590/header.jpg?t=1671485100",
       year: 2015,
       genre: 'Modern, Action Adventure, Open-World',
       ratings: ' Metacritic: 79% | 7.8/10 IGN. '),
-
   GameModel(
       title: 'Call of Duty: Warzone 2.0',
       description:
@@ -319,9 +323,9 @@ List<GameModel> gameList = [
           'and plunder-style skirmishes. Players assume the roles of soldiers/freedom fighters battling to be the last man standing or to earn the most '
           'money via scavenging and performing objectives. Players use machine guns, shotguns, sniper rifles, and explosives to kill enemies in frenetic '
           'combat. Battles are accompanied by realistic gunfire, screams of pain, and blood-splatter effects.',
-      imageUrl: "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mw-wz/WZ2-S01-DMZ-TACTICS-TOUT.jpg",
+      imageUrl:
+          "https://www.callofduty.com/content/dam/atvi/callofduty/cod-touchui/blog/hero/mw-wz/WZ2-S01-DMZ-TACTICS-TOUT.jpg",
       year: 2022,
       genre: 'First-Person Shooter',
       ratings: ' Metacritic: 80% | 8/10 IGN. '),
-
 ];

@@ -62,10 +62,8 @@ class NavigationDrawerPage extends StatelessWidget {
               leading: const Icon(Icons.library_books),
               title: const Text('Edit User Profile'),
               onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const Profile()));
+                Navigator.push(context,
+                    MaterialPageRoute(builder: (context) => const Profile()));
               },
             ),
             const Divider(color: Colors.black54),

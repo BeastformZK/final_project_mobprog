@@ -127,7 +127,7 @@ class _PostScreenState extends State<PostScreen> {
                                   Text(
                                     '${post.user!.name}',
                                     style: const TextStyle(
-                                      color: Colors.black,
+                                        color: Colors.black,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 17),
                                   )
@@ -168,13 +168,11 @@ class _PostScreenState extends State<PostScreen> {
                         const SizedBox(
                           height: 5,
                         ),
-
                         Container(
                           width: MediaQuery.of(context).size.width,
                           height: 1,
                           color: Colors.black,
                         ),
-
                         post.image != null
                             ? Container(
                                 width: MediaQuery.of(context).size.width,
@@ -188,45 +186,36 @@ class _PostScreenState extends State<PostScreen> {
                             : SizedBox(
                                 height: post.image != null ? 0 : 10,
                               ),
-
                         Container(
                           width: double.infinity,
                           height: 30,
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.transparent, width: 2),
+                            border:
+                                Border.all(color: Colors.transparent, width: 2),
                             borderRadius: BorderRadius.circular(10),
                           ),
-
                           child: SizedBox(
                             child: Text(' ${post.title}',
                                 style: const TextStyle(
                                     color: Colors.black,
                                     fontSize: 20,
-                                    fontWeight: FontWeight.bold
-                                )
-                            ),
+                                    fontWeight: FontWeight.bold)),
                           ),
                         ),
-
                         Container(
                           width: double.infinity,
                           height: 30,
                           decoration: BoxDecoration(
-                            border: Border.all(color: Colors.transparent, width: 2),
+                            border:
+                                Border.all(color: Colors.transparent, width: 2),
                             borderRadius: BorderRadius.circular(10),
                           ),
-
                           child: SizedBox(
                             child: Text(' ${post.description}',
                                 style: const TextStyle(
-                                    color: Colors.black45,
-                                    fontSize: 20
-                                )
-                            ),
+                                    color: Colors.black45, fontSize: 20)),
                           ),
                         ),
-
-
                         Container(
                           width: MediaQuery.of(context).size.width,
                           height: 1,
@@ -243,8 +232,7 @@ class _PostScreenState extends State<PostScreen> {
                                     ? Colors.red
                                     : Colors.black54, () {
                               _handlePostLikeDislike(post.id ?? 0);
-                            }
-                            ),
+                            }),
                             Container(
                               height: 25,
                               width: 1,
