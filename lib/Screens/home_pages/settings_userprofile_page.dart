@@ -16,11 +16,20 @@ class Profile extends StatefulWidget {
 
 class _ProfileState extends State<Profile> {
   User? user;
+  User? email;
+  User? details;
+
   bool loading = true;
   GlobalKey<FormState> formKey = GlobalKey<FormState>();
+  GlobalKey<FormState> emailKey = GlobalKey<FormState>();
+  GlobalKey<FormState> detailsKey = GlobalKey<FormState>();
+
+
   File? _imageFile;
   final _picker = ImagePicker();
   TextEditingController txtNameController = TextEditingController();
+  TextEditingController txtEmailController = TextEditingController();
+  TextEditingController txtdetailsController = TextEditingController();
 
   Future getImage() async {
     final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
@@ -37,8 +46,11 @@ class _ProfileState extends State<Profile> {
     if (response.error == null) {
       setState(() {
         user = response.data as User;
+        email = response.data as User;
         loading = false;
         txtNameController.text = user!.name ?? '';
+        txtEmailController.text = user!.email ?? '';
+        txtdetailsController.text = user!.details ?? '';
       });
     } else if (response.error == unauthorized) {
       logout().then((value) => {
@@ -56,6 +68,8 @@ class _ProfileState extends State<Profile> {
   void updateProfile() async {
     ApiResponse response =
         await updateUser(txtNameController.text, getStringImage(_imageFile));
+        await updateUser(txtEmailController.text, getStringImage(_imageFile));
+        await updateUser(txtdetailsController.text, getStringImage(_imageFile));
     setState(() {
       loading = false;
     });
@@ -106,7 +120,7 @@ class _ProfileState extends State<Profile> {
                             : DecorationImage(
                                 image: FileImage(_imageFile ?? File('')),
                                 fit: BoxFit.cover),
-                        color: Colors.amber),
+                        color: Colors.purple),
                   ),
                   onTap: () {
                     getImage();
@@ -123,7 +137,7 @@ class _ProfileState extends State<Profile> {
                         contentPadding: EdgeInsets.all(10),
                         border: OutlineInputBorder(
                             borderSide:
-                                BorderSide(width: 1, color: Colors.black))),
+                                BorderSide(width: 50, color: Colors.black))),
                     controller: txtNameController,
                     validator: (val) => val!.isEmpty ? 'Invalid Name' : null,
                   ),
@@ -131,7 +145,39 @@ class _ProfileState extends State<Profile> {
                 const SizedBox(
                   height: 20,
                 ),
-                TextButton(
+                Form(
+                  key: emailKey,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: 'Email',
+                        contentPadding: EdgeInsets.all(10),
+                        border: OutlineInputBorder(
+                            borderSide:
+                            BorderSide(width: 50, color: Colors.black))),
+                    controller: txtEmailController,
+                    validator: (val) => val!.isEmpty ? 'Invalid Email' : null,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                Form(
+                  key: detailsKey,
+                  child: TextFormField(
+                    decoration: const InputDecoration(
+                        labelText: 'Details',
+                        contentPadding: EdgeInsets.all(10),
+                        border: OutlineInputBorder(
+                            borderSide:
+                            BorderSide(width: 50, color: Colors.black))),
+                    controller: txtdetailsController,
+                    validator: (val) => val!.isEmpty ? 'Invalid details' : null,
+                  ),
+                ),
+                const SizedBox(
+                  height: 20,
+                ),
+                ElevatedButton(
                     onPressed: () {
                       if (formKey.currentState!.validate()) {
                         setState(() {
