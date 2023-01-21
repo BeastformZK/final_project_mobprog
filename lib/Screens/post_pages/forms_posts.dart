@@ -1,6 +1,7 @@
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:permission_handler/permission_handler.dart';
 import '../../Models/models_posts.dart';
 import '../../constant_variables/constants.dart';
 import '../../models/api_response.dart';
@@ -29,12 +30,28 @@ class _PostFormState extends State<PostForm> {
   final _picker = ImagePicker();
 
   Future getImage() async {
-    final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
-    if (pickedFile != null) {
+
+    PermissionStatus storageStatus =
+    await Permission.storage.request();
+
+    if (storageStatus == PermissionStatus.granted){
+      final pickedFile = await _picker.pickImage(source: ImageSource.gallery);
       setState(() {
-        _imageFile = File(pickedFile.path);
-      });
+        _imageFile = File(pickedFile!.path);
+      }
+      );
     }
+
+    if (storageStatus == PermissionStatus.denied){
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("This permission is required")));
+    }
+
+    if (storageStatus == PermissionStatus.permanentlyDenied){
+      openAppSettings();
+    }
+
+
   }
 
   void _createPost() async {

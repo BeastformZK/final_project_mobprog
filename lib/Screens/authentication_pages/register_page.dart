@@ -6,8 +6,6 @@ import '../../services_app/service_users.dart';
 import '../home_pages/home_page.dart';
 import 'login_page.dart';
 
-// Kate Ladera
-// Radaza
 
 class RegisterWidget extends StatefulWidget {
   const RegisterWidget({Key? key}) : super(key: key);

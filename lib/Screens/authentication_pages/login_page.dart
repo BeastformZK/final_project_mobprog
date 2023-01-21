@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
+import 'package:permission_handler/permission_handler.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../../Models/models_users.dart';
 import '../../models/api_response.dart';
@@ -47,13 +48,33 @@ class _LoginWidgetState extends State<LoginWidget> {
         (route) => false);
   }
 
+  Future _permissionStorage() async{
+    PermissionStatus storageStatus =
+    await Permission.storage.request();
+
+    if (storageStatus == PermissionStatus.granted){
+      const LoginWidget();
+    }
+
+    if (storageStatus == PermissionStatus.denied){
+      ScaffoldMessenger.of(context)
+          .showSnackBar(const SnackBar(content: Text("This permission is required")));
+    }
+
+    if (storageStatus == PermissionStatus.permanentlyDenied){
+      openAppSettings();
+    }
+  }
+
   @override
   void initState() {
+    _permissionStorage();
     super.initState();
     passwordVisible = false;
     Future.delayed(const Duration(seconds: 5))
         .then((value) => {FlutterNativeSplash.remove()});
   }
+
 
   @override
   Widget build(BuildContext context) {
