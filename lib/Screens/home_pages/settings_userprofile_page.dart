@@ -50,6 +50,7 @@ class _ProfileState extends State<Profile> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -73,6 +74,7 @@ class _ProfileState extends State<Profile> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -88,79 +90,80 @@ class _ProfileState extends State<Profile> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.green[700],
         elevation: 10,
         title: const Text('Game Blog', style: TextStyle(color: Colors.white)),
       ),
       body: Container(
-          child: loading
-              ? const Center(
-                  child: CircularProgressIndicator(),
-                )
-              : Padding(
-                  padding: const EdgeInsets.only(top: 40, left: 40, right: 40),
-                  child: ListView(
-                    children: [
-                      const SizedBox(height: 60),
-                      Center(
-                          child: GestureDetector(
-                        child: Container(
-                          width: 200,
-                          height: 200,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.circular(20),
-                              image: _imageFile == null
-                                  ? user!.image != null
-                                      ? DecorationImage(
-                                          image: NetworkImage('${user!.image}'),
-                                          fit: BoxFit.cover)
-                                      : null
-                                  : DecorationImage(
-                                      image: FileImage(_imageFile ?? File('')),
-                                      fit: BoxFit.cover),
-                              color: Colors.purple),
-                        ),
-                        onTap: () {
-                          getImage();
+        color: Colors.blueGrey[300],
+        child: loading
+            ? const Center(
+                child: CircularProgressIndicator(),
+              )
+            : Padding(
+                padding: const EdgeInsets.only(top: 40, left: 40, right: 40),
+                child: ListView(
+                  children: [
+                    const SizedBox(height: 60),
+                    Center(
+                        child: GestureDetector(
+                      child: Container(
+                        width: 200,
+                        height: 200,
+                        decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(20),
+                            image: _imageFile == null
+                                ? user!.image != null
+                                    ? DecorationImage(
+                                        image: NetworkImage('${user!.image}'),
+                                        fit: BoxFit.cover)
+                                    : null
+                                : DecorationImage(
+                                    image: FileImage(_imageFile ?? File('')),
+                                    fit: BoxFit.cover),
+                            color: Colors.green[700]),
+                      ),
+                      onTap: () {
+                        getImage();
+                      },
+                    )),
+                    const SizedBox(
+                      height: 60,
+                    ),
+                    Form(
+                      key: formKey,
+                      child: TextFormField(
+                        decoration: const InputDecoration(
+                            labelText: 'Name',
+                            contentPadding: EdgeInsets.all(20),
+                            border: OutlineInputBorder(
+                                borderSide: BorderSide(
+                                    width: 50, color: Colors.green))),
+                        controller: txtNameController,
+                        validator: (val) =>
+                            val!.isEmpty ? 'Invalid Name' : null,
+                      ),
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    ),
+                    ElevatedButton(
+                        onPressed: () {
+                          if (formKey.currentState!.validate()) {
+                            setState(() {
+                              loading = true;
+                            });
+                            updateProfile();
+                          }
                         },
-                      )),
-                      const SizedBox(
-                        height: 60,
-                      ),
-                      Form(
-                        key: formKey,
-                        child: TextFormField(
-                          decoration: const InputDecoration(
-                              labelText: 'Name',
-                              contentPadding: EdgeInsets.all(20),
-                              border: OutlineInputBorder(
-                                  borderSide: BorderSide(
-                                      width: 50, color: Colors.black))),
-                          controller: txtNameController,
-                          validator: (val) =>
-                              val!.isEmpty ? 'Invalid Name' : null,
+                        style: ElevatedButton.styleFrom(
+                          backgroundColor: Colors.green[700],
                         ),
-                      ),
-                      const SizedBox(
-                        height: 20,
-                      ),
-                      ElevatedButton(
-                          onPressed: () {
-                            if (formKey.currentState!.validate()) {
-                              setState(() {
-                                loading = true;
-                              });
-                              updateProfile();
-                            }
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: Colors.green,
-                          ),
-                          child: const Text('Update Gamer'))
-                    ],
-                  ),
+                        child: const Text('Update Gamer'))
+                  ],
                 ),
-        ),
+              ),
+      ),
     );
   }
 }

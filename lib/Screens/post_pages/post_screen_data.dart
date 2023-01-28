@@ -12,6 +12,7 @@ class PostScreen extends StatefulWidget {
   const PostScreen({super.key});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PostScreenState createState() => _PostScreenState();
 }
 
@@ -37,6 +38,7 @@ class _PostScreenState extends State<PostScreen> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(SnackBar(
         content: Text('${response.error}'),
       ));
@@ -54,6 +56,7 @@ class _PostScreenState extends State<PostScreen> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -72,6 +75,7 @@ class _PostScreenState extends State<PostScreen> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -118,8 +122,8 @@ class _PostScreenState extends State<PostScreen> {
                                                 image: NetworkImage(
                                                     '${post.user!.image}'))
                                             : null,
-                                        borderRadius: BorderRadius.circular(25),
-                                        color: Colors.green),
+                                        borderRadius:
+                                            BorderRadius.circular(25)),
                                   ),
                                   const SizedBox(
                                     width: 10,
@@ -127,7 +131,7 @@ class _PostScreenState extends State<PostScreen> {
                                   Text(
                                     '${post.user!.name}',
                                     style: const TextStyle(
-                                        color: Colors.black,
+                                        color: Colors.white,
                                         fontWeight: FontWeight.w600,
                                         fontSize: 17),
                                   )
@@ -140,7 +144,7 @@ class _PostScreenState extends State<PostScreen> {
                                         padding: EdgeInsets.only(right: 10),
                                         child: Icon(
                                           Icons.more_vert,
-                                          color: Colors.black,
+                                          color: Colors.white,
                                         )),
                                     itemBuilder: (context) => [
                                       const PopupMenuItem(
@@ -171,17 +175,17 @@ class _PostScreenState extends State<PostScreen> {
                         Container(
                           width: MediaQuery.of(context).size.width,
                           height: 1,
-                          color: Colors.black,
+                          color: Colors.white,
                         ),
                         post.image != null
                             ? Container(
                                 width: MediaQuery.of(context).size.width,
-                                height: 180,
+                                height: 400,
                                 margin: const EdgeInsets.only(top: 5),
                                 decoration: BoxDecoration(
                                     image: DecorationImage(
                                         image: NetworkImage('${post.image}'),
-                                        fit: BoxFit.cover)),
+                                        fit: BoxFit.fill)),
                               )
                             : SizedBox(
                                 height: post.image != null ? 0 : 10,
@@ -197,7 +201,7 @@ class _PostScreenState extends State<PostScreen> {
                           child: SizedBox(
                             child: Text(' ${post.title}',
                                 style: const TextStyle(
-                                    color: Colors.black,
+                                    color: Colors.white,
                                     fontSize: 20,
                                     fontWeight: FontWeight.bold)),
                           ),
@@ -213,7 +217,7 @@ class _PostScreenState extends State<PostScreen> {
                           child: SizedBox(
                             child: Text(' ${post.description}',
                                 style: const TextStyle(
-                                    color: Colors.black45, fontSize: 20)),
+                                    color: Colors.white, fontSize: 20)),
                           ),
                         ),
                         Container(
@@ -230,7 +234,7 @@ class _PostScreenState extends State<PostScreen> {
                                     : Icons.favorite_outline,
                                 post.selfLiked == true
                                     ? Colors.red
-                                    : Colors.black54, () {
+                                    : Colors.black, () {
                               _handlePostLikeDislike(post.id ?? 0);
                             }),
                             Container(
@@ -239,7 +243,7 @@ class _PostScreenState extends State<PostScreen> {
                               color: Colors.black,
                             ),
                             likeAndComment(post.commentsCount ?? 0,
-                                Icons.sms_outlined, Colors.black54, () {
+                                Icons.sms_outlined, Colors.black, () {
                               Navigator.of(context).push(MaterialPageRoute(
                                   builder: (context) => CommentScreen(
                                         postId: post.id,

@@ -47,23 +47,25 @@ class _LoginWidgetState extends State<LoginWidget> {
         (route) => false);
   }
 
-  Future _UserPermission() async {
+  Future _userPermission() async {
     Map<Permission, PermissionStatus> statuses = await [
       Permission.storage,
       Permission.camera,
     ].request();
 
-    if(statuses[Permission.storage]!.isDenied){ //check permission
+    if (statuses[Permission.storage]!.isDenied) {
+      //check permission
       openAppSettings();
     }
-    if(statuses[Permission.camera]!.isDenied){ //check permission
+    if (statuses[Permission.camera]!.isDenied) {
+      //check permission
       openAppSettings();
     }
   }
 
   @override
   void initState() {
-    _UserPermission();
+    _userPermission();
     super.initState();
     passwordVisible = false;
     Future.delayed(const Duration(seconds: 5))

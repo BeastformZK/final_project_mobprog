@@ -16,6 +16,7 @@ class PostForm extends StatefulWidget {
   const PostForm({super.key, this.post, this.title});
 
   @override
+  // ignore: library_private_types_in_public_api
   _PostFormState createState() => _PostFormState();
 }
 
@@ -39,6 +40,7 @@ class _PostFormState extends State<PostForm> {
     }
 
     if (storageStatus == PermissionStatus.denied) {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context).showSnackBar(
           const SnackBar(content: Text("This permission is required")));
     }
@@ -54,6 +56,7 @@ class _PostFormState extends State<PostForm> {
         await createPost(_title.text, image, _description.text);
 
     if (response.error == null) {
+      // ignore: use_build_context_synchronously
       Navigator.of(context).pop();
     } else if (response.error == unauthorized) {
       logout().then((value) => {
@@ -62,6 +65,7 @@ class _PostFormState extends State<PostForm> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
       setState(() {
@@ -75,6 +79,7 @@ class _PostFormState extends State<PostForm> {
     ApiResponse response =
         await editPost(postId, _title.text, _description.text);
     if (response.error == null) {
+      // ignore: use_build_context_synchronously
       Navigator.of(context).pop();
     } else if (response.error == unauthorized) {
       logout().then((value) => {
@@ -83,6 +88,7 @@ class _PostFormState extends State<PostForm> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
       setState(() {
@@ -111,10 +117,10 @@ class _PostFormState extends State<PostForm> {
           '${widget.title}',
           style: const TextStyle(
             fontWeight: FontWeight.bold,
-            color: Colors.green,
+            color: Colors.greenAccent,
           ),
         ),
-        backgroundColor: Colors.black87,
+        backgroundColor: Colors.blueGrey[700],
       ),
       body: _loading
           ? const Center(
@@ -168,8 +174,9 @@ class _PostFormState extends State<PostForm> {
                             border: OutlineInputBorder(),
                             hintText: 'Ex. Mobile Legend',
                           ),
-                          validator: (value) =>
-                              value!.isEmpty ? 'Please add title!' : null,
+                          validator: (value) => value!.isEmpty
+                              ? 'Please Input the Name of the Game!'
+                              : null,
                         ),
                         const SizedBox(
                           height: 5,
@@ -189,8 +196,12 @@ class _PostFormState extends State<PostForm> {
                             border: OutlineInputBorder(),
                             hintText: "What's on this game? ",
                           ),
-                          validator: (value) =>
-                              value!.isEmpty ? 'Please add Description!' : null,
+                          validator: (value) {
+                            if (value!.isEmpty) {
+                              return 'Please enter a description';
+                            }
+                            return null;
+                          },
                         ),
                         const SizedBox(
                           height: 5,

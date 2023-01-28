@@ -18,18 +18,19 @@ class _HomepageState extends State<Homepage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.blueGrey[900],
 
       /// remove const if the data is already inserted on NavigationDrawerPage
       drawer: const NavigationDrawerPage(),
       appBar: AppBar(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.blueGrey[700],
         elevation: 0,
-        title: const Text('Game Blog', style: TextStyle(color: Colors.white)),
+        title: const Text('Game Blog',
+            style: TextStyle(color: Colors.greenAccent)),
       ),
       body: currentIndex == 0 ? const PostScreen() : const LibraryPage(),
       floatingActionButton: FloatingActionButton(
-        backgroundColor: Colors.green,
+        backgroundColor: Colors.green[700],
         onPressed: () {
           Navigator.of(context).push(MaterialPageRoute(
               builder: (context) => const PostForm(
@@ -52,7 +53,7 @@ class _HomepageState extends State<Homepage> {
                 label: 'Game Home',
               ),
               BottomNavigationBarItem(
-                  icon: Icon(Icons.person), label: 'Game Library')
+                  icon: Icon(Icons.library_books), label: 'Game Library')
             ],
             currentIndex: currentIndex,
             onTap: (val) {
@@ -60,7 +61,7 @@ class _HomepageState extends State<Homepage> {
                 currentIndex = val;
               });
             },
-            backgroundColor: Colors.green,
+            backgroundColor: Colors.green[700],
             selectedItemColor: Colors.white,
             unselectedItemColor: Colors.white),
       ),

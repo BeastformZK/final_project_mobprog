@@ -307,126 +307,118 @@ List<GameModel> gameList = [
       ratings: ' Metacritic: 80% | 8/10 IGN. '),
   GameModel(
       title: 'Granny',
-      description:
-      'Granny keeps you locked in her house.'
+      description: 'Granny keeps you locked in her house.'
           'Now you have to try to get out of her house, but be careful and quiet. She hears everything.'
           'If you drop something on the floor, she hears it and comes running.'
           'You can hide in wardrobes or under beds. You have 5 days.',
-      imageUrl:
-      "https://wallpaperaccess.com/full/7257003.jpg",
+      imageUrl: "https://wallpaperaccess.com/full/7257003.jpg",
       year: 2017,
       genre: 'Survival Horror, Puzzle',
       ratings: ' Metacritic: 80% | 4.3 stars IGN. '),
   GameModel(
       title: 'Clash of Clans',
       description:
-             'a MMO or massively multiplayer online strategy game developed by Supercel.'
-             'The number on game charts during its prime on mobile gaming',
+          'a MMO or massively multiplayer online strategy game developed by Supercel.'
+          'The number on game charts during its prime on mobile gaming',
       imageUrl:
-             "https://1.bp.blogspot.com/-lR35K75axWU/XxtYDf7I2FI/AAAAAAAAACc/4DjS0bL5zJA24LKFgsX94fJ80ojx-CMBgCLcBGAsYHQ/s1024/app-icons-clashofclans.png",
+          "https://1.bp.blogspot.com/-lR35K75axWU/XxtYDf7I2FI/AAAAAAAAACc/4DjS0bL5zJA24LKFgsX94fJ80ojx-CMBgCLcBGAsYHQ/s1024/app-icons-clashofclans.png",
       year: 2012,
       genre: 'MMO',
       ratings: ' Metacritic: 74% |  93% IGN. '),
   GameModel(
       title: 'Rise Of Kingdoms',
-      description:
-             'Game created by Lilith Games'
-             'An MMO game that focuses on faction raging from egypt,roman to the vikings,etc'
-             'Create and expand your army with maximizing troop level up and their technology'
-             'Join Alliances and conquer your servers and the global server',
+      description: 'Game created by Lilith Games'
+          'An MMO game that focuses on faction raging from egypt,roman to the vikings,etc'
+          'Create and expand your army with maximizing troop level up and their technology'
+          'Join Alliances and conquer your servers and the global server',
       imageUrl:
-              "https://cdn.gamerjournalist.com/primary/2021/07/Rise-of-Kingdoms-codes.jpg",
+          "https://cdn.gamerjournalist.com/primary/2021/07/Rise-of-Kingdoms-codes.jpg",
       year: 2018,
       genre: 'MMO',
       ratings: ' Metacritic: 73% | 80% IGN '),
   GameModel(
       title: 'Mario Kart Tour',
-      description:
-            'Based on the survival action based mario games and frachise'
-            'Mario Kart to ios and android application for mobile users'
-            'Race against other players online with different selection of Mario character franchise'
-            'costumizable carts raging from bikes,kart to sapceships',
+      description: 'Based on the survival action based mario games and frachise'
+          'Mario Kart to ios and android application for mobile users'
+          'Race against other players online with different selection of Mario character franchise'
+          'costumizable carts raging from bikes,kart to sapceships',
       imageUrl:
-            "https://assets1.ignimgs.com/2019/08/27/mario-kart-tour---button-fin-1566929428701.jpg",
+          "https://assets1.ignimgs.com/2019/08/27/mario-kart-tour---button-fin-1566929428701.jpg",
       year: 2019,
       genre: 'Racing game',
       ratings: ' Metacritic: 51% | 83% IGN '),
   GameModel(
       title: 'Genshin Impact',
       description:
-             'an open-world action RPG. In the game, set forth on a journey across a fantasy world called Teyvat. In this vast world.'
-             'Separated by an unknown god, stripped of your powers, and cast into a deep slumber, you now awake to a world very different from when you first arrived.'
-             'Thus begins your journey across Teyvat to seek answers from The Seven — the gods of each element'
-             'join in coop raids and bosses with a gacha character and weapon system',
+          'an open-world action RPG. In the game, set forth on a journey across a fantasy world called Teyvat. In this vast world.'
+          'Separated by an unknown god, stripped of your powers, and cast into a deep slumber, you now awake to a world very different from when you first arrived.'
+          'Thus begins your journey across Teyvat to seek answers from The Seven — the gods of each element'
+          'join in coop raids and bosses with a gacha character and weapon system',
       imageUrl:
-              "https://playpc.io/wp-content/uploads/2020/11/genshin-impact-logo.png",
+          "https://playpc.io/wp-content/uploads/2020/11/genshin-impact-logo.png",
       year: 2020,
       genre: 'open world RPG',
       ratings: ' Metacritic: 86% | 7.5/10 IGN. '),
   GameModel(
       title: 'Call of Duty Mobile',
-      description:
-            'A two modes Call of Duty game for mobile users.'
-            'Raging from clasic 5v5 Fps shooter game to a costumizable third and first shooter survival battlegrounds.'
-            'With free gun and character skins with draw purchases option.'
-            'Brings you the classic feels from CoD to your mobile.',
+      description: 'A two modes Call of Duty game for mobile users.'
+          'Raging from clasic 5v5 Fps shooter game to a costumizable third and first shooter survival battlegrounds.'
+          'With free gun and character skins with draw purchases option.'
+          'Brings you the classic feels from CoD to your mobile.',
       imageUrl:
-            "https://cdn1.dotesports.com/wp-content/uploads/2020/05/24064824/call-of-duty-mobile-hero-a.jpg",
+          "https://cdn1.dotesports.com/wp-content/uploads/2020/05/24064824/call-of-duty-mobile-hero-a.jpg",
       year: 2019,
       genre: 'Shooter game',
       ratings: ' Metacritic: 81% | 6.5/10 IGN. '),
   GameModel(
       title: 'Battle Realms',
       description:
-             'Kenji, exiled heir to the Dragon throne, must stake his claim in a chaotic world wracked by the intrigues of the Serpent, Wolf and Lotus clans.'
-             'Battle Realms is a fantasy real-time strategy innovation inspired by kung-fu movies and Japanese mythology.'
-             'Made by liquid entertainment.'
-             'Develop a village of peasants into a clan of highly specialized fantasy warriors, leading your clan through two possible scenarios - one heroic and one evil.',
-      imageUrl:
-             "https://i.ytimg.com/vi/xm6N2ZcN4L0/maxresdefault.jpg",
+          'Kenji, exiled heir to the Dragon throne, must stake his claim in a chaotic world wracked by the intrigues of the Serpent, Wolf and Lotus clans.'
+          'Battle Realms is a fantasy real-time strategy innovation inspired by kung-fu movies and Japanese mythology.'
+          'Made by liquid entertainment.'
+          'Develop a village of peasants into a clan of highly specialized fantasy warriors, leading your clan through two possible scenarios - one heroic and one evil.',
+      imageUrl: "https://i.ytimg.com/vi/xm6N2ZcN4L0/maxresdefault.jpg",
       year: 2001,
       genre: 'real-time fantasy strategy game',
       ratings: ' Metacritic: 82% | 8.7/10 IGN.'),
   GameModel(
       title: 'Pokemon Go',
-      description:
-             'an augmented Reality game Of pokemon'
-             'An open world that realtime uses gps to where the pokemon in the real world are hidden'
-             'Catch them all using the camera or default ui'
-             'Pokemons available from gen 1 to Gen 6 up till this day',
+      description: 'an augmented Reality game Of pokemon'
+          'An open world that realtime uses gps to where the pokemon in the real world are hidden'
+          'Catch them all using the camera or default ui'
+          'Pokemons available from gen 1 to Gen 6 up till this day',
       imageUrl:
-            "https://lifestylefrisco.com/wp-content/uploads/2016/08/pokemon-go-logo.jpg",
+          "https://lifestylefrisco.com/wp-content/uploads/2016/08/pokemon-go-logo.jpg",
       year: 2016,
       genre: 'Augmented reality game',
       ratings: ' Metacritic: 69% | 7.2/10 IGN. '),
   GameModel(
       title: 'Unreal tournament Remastered',
       description:
-              'Ga first-person arena shooter video game developed by Epic Games and Digital Extremes.'
-              'The second installment in the Unreal series, it was first published by GT Interactive in 1999 for Microsoft Windows.'
-              'Players compete in a series of matches of various types, with the general aim of out-killing opponents.'
-              'Unreal Tournament received universal acclaim, often being considered one of the greatest video games ever made.',
+          'Ga first-person arena shooter video game developed by Epic Games and Digital Extremes.'
+          'The second installment in the Unreal series, it was first published by GT Interactive in 1999 for Microsoft Windows.'
+          'Players compete in a series of matches of various types, with the general aim of out-killing opponents.'
+          'Unreal Tournament received universal acclaim, often being considered one of the greatest video games ever made.',
       imageUrl:
-              "https://www.mobygames.com/images/promo/original/1479311297-3200352547.png",
+          "https://www.mobygames.com/images/promo/original/1479311297-3200352547.png",
       year: 2004,
       genre: 'First person shooter',
       ratings: ' Metacritic: 93% | 7/10 IGN. '),
   GameModel(
       title: 'Warcraft 3: Reign of Chaos',
       description:
-        'a high fantasy real-time strategy computer video game developed and published by Blizzard Entertainment.'
-        'It is the second sequel to Warcraft: Orcs & Humans, after Warcraft II: Tides of Darkness, the third game set in the Warcraft fictional universe.'
-        'is set several years after the events of Warcraft II, and tells the story of the Burning Legions attempt to conquer the fictional world of Azeroth.'
-        'players collect resources, train individual units and heroes, and build bases in order to achieve various goals (in single-player mode), or to defeat the enemy player.',
+          'a high fantasy real-time strategy computer video game developed and published by Blizzard Entertainment.'
+          'It is the second sequel to Warcraft: Orcs & Humans, after Warcraft II: Tides of Darkness, the third game set in the Warcraft fictional universe.'
+          'is set several years after the events of Warcraft II, and tells the story of the Burning Legions attempt to conquer the fictional world of Azeroth.'
+          'players collect resources, train individual units and heroes, and build bases in order to achieve various goals (in single-player mode), or to defeat the enemy player.',
       imageUrl:
-        "https://upload.wikimedia.org/wikipedia/fr/8/8a/Warcraft_III_Reign_of_Chaos_Logo.png",
+          "https://upload.wikimedia.org/wikipedia/fr/8/8a/Warcraft_III_Reign_of_Chaos_Logo.png",
       year: 2003,
       genre: 'Real Time Strategy',
       ratings: ' Metacritic: 92% | 8.8/10 IGN. '),
   GameModel(
       title: 'Minecraft',
-      description:
-          'is a sandbox game developed by Mojang Studios.'
+      description: 'is a sandbox game developed by Mojang Studios.'
           'The game was created by Markus "Notch" Persson in the Java programming language.'
           'In Minecraft, players explore a blocky, procedurally generated, three-dimensional world.'
           'virtually infinite terrain and may discover and extract raw materials, craft tools and items, and build structures, earthworks, and machines.',
@@ -449,12 +441,12 @@ List<GameModel> gameList = [
   GameModel(
       title: 'Mobile Legends: Bang Bang',
       description:
-            'game developed and published by Moonton, a subsidiary of ByteDance.'
-            'Released in 2016, the game grew in popularity worldwide, most prominently in Southeast Asia.'
-            ' the game pits 2 teams of 5 against each other in real time with at least 10-second matchmaking and 10-minute matches.'
-            'Featuring traditional battle arena gameplay, players must fight over three lanes to take the enemys tower and defend their own.',
+          'game developed and published by Moonton, a subsidiary of ByteDance.'
+          'Released in 2016, the game grew in popularity worldwide, most prominently in Southeast Asia.'
+          ' the game pits 2 teams of 5 against each other in real time with at least 10-second matchmaking and 10-minute matches.'
+          'Featuring traditional battle arena gameplay, players must fight over three lanes to take the enemys tower and defend their own.',
       imageUrl:
-            "https://i0.wp.com/gamingonphone.com/wp-content/uploads/2020/09/mlbb.jpg",
+          "https://i0.wp.com/gamingonphone.com/wp-content/uploads/2020/09/mlbb.jpg",
       year: 2016,
       genre: 'MOBA',
       ratings: ' Metacritic: 6.4 stars | 4.0 stars Playstore. '),
@@ -473,24 +465,24 @@ List<GameModel> gameList = [
   GameModel(
       title: 'Temple Run',
       description:
-            'a 3D endless running video game developed and published by Imangi Studios.'
-            'The player controls an explorer who has obtained an ancient relic and runs from demonic monkey-like creatures chasing him.'
-            'Run from angry Monsters that you stole a treasure from.'
-            'collect coins and gems to unlock character.',
+          'a 3D endless running video game developed and published by Imangi Studios.'
+          'The player controls an explorer who has obtained an ancient relic and runs from demonic monkey-like creatures chasing him.'
+          'Run from angry Monsters that you stole a treasure from.'
+          'collect coins and gems to unlock character.',
       imageUrl:
-            "https://is4-ssl.mzstatic.com/image/thumb/Purple124/v4/35/56/a1/3556a145-a20b-123f-12a8-cf4c9908c7bd/source/0x0ss-85.png",
+          "https://is4-ssl.mzstatic.com/image/thumb/Purple124/v4/35/56/a1/3556a145-a20b-123f-12a8-cf4c9908c7bd/source/0x0ss-85.png",
       year: 2011,
       genre: 'Running game',
       ratings: ' Metacritic: 80% | 7.5/10 IGN. '),
   GameModel(
       title: 'Subway Surfer',
       description:
-            'is an endless runner mobile game co-developed by Kiloo and SYBO Games.'
-            'available on Android, iOS, HarmonyOS, Kindle, and Windows Phone platforms and uses the Unity game engine.'
-            'TThe game starts by tapping the touchscreen, while Jake (the games starter character) or any other character sprays graffiti on a subway.'
-            'A crash results in a game over, but the player can continue running by using keys, or watching an ad.',
+          'is an endless runner mobile game co-developed by Kiloo and SYBO Games.'
+          'available on Android, iOS, HarmonyOS, Kindle, and Windows Phone platforms and uses the Unity game engine.'
+          'TThe game starts by tapping the touchscreen, while Jake (the games starter character) or any other character sprays graffiti on a subway.'
+          'A crash results in a game over, but the player can continue running by using keys, or watching an ad.',
       imageUrl:
-            "https://1.bp.blogspot.com/-wLOZwfvy_eg/UXi5EB1IqJI/AAAAAAAAEvg/zr4QAXaLIls/s1600/1234567.jpg",
+          "https://1.bp.blogspot.com/-wLOZwfvy_eg/UXi5EB1IqJI/AAAAAAAAEvg/zr4QAXaLIls/s1600/1234567.jpg",
       year: 2012,
       genre: 'Endless Running game',
       ratings: ' Metacritic: 71% | 4.7 stars Playstore. '),
@@ -500,8 +492,7 @@ List<GameModel> gameList = [
           'is a massively multiplayer online game developed by Belarusian company Wargaming.'
           'featuring 20th century (1910s–1970s) era combat vehicles.'
           'participants also have the option of paying a fee for use of "premium" features.',
-      imageUrl:
-          "https://i.ytimg.com/vi/6kodGpDicjw/hqdefault.jpg",
+      imageUrl: "https://i.ytimg.com/vi/6kodGpDicjw/hqdefault.jpg",
       year: 2011,
       genre: 'Multiplayer Online Game, Free-to-Play, Team Based',
       ratings: ' Metacritic: 80% | 7.5/10 IGN. '),
@@ -532,23 +523,21 @@ List<GameModel> gameList = [
   GameModel(
       title: 'Jetpack Joyride',
       description:
-            'game uses a simple, one-touch system to control the jetpack; when the player presses anywhere on the touchscreen.'
-            'jetpack fires and Barry rises. When the player lets go, the jetpack turns off, and Barry falls.'
-            'objective of the game is to travel as far as possible, collect coins, and avoid hazards such as zappers, missiles and high-intensity laser beams.'
-            'Contact with any of such obstacles would result in instant death, although Barrys body will tumble and slide for an additional distance upon dying.',
-      imageUrl:
-            "https://i.ytimg.com/vi/7_EprEP_-4w/maxresdefault.jpg",
+          'game uses a simple, one-touch system to control the jetpack; when the player presses anywhere on the touchscreen.'
+          'jetpack fires and Barry rises. When the player lets go, the jetpack turns off, and Barry falls.'
+          'objective of the game is to travel as far as possible, collect coins, and avoid hazards such as zappers, missiles and high-intensity laser beams.'
+          'Contact with any of such obstacles would result in instant death, although Barrys body will tumble and slide for an additional distance upon dying.',
+      imageUrl: "https://i.ytimg.com/vi/7_EprEP_-4w/maxresdefault.jpg",
       year: 2011,
       genre: 'side-scrolling endless runner action video game',
       ratings: ' Metacritic: 90% | 9/10 IGN. '),
   GameModel(
       title: 'Zombie Tsunami',
-      description:
-            'a side scrolling endless runner game..'
-            'developed by French studio Mobigame and released for Android and iOS.'
-            'It was renamed to Zombie Tsunami on August 11, 2012, to avoid a trademark conflict with Taitos Zombie Carnival mobile game.',
+      description: 'a side scrolling endless runner game..'
+          'developed by French studio Mobigame and released for Android and iOS.'
+          'It was renamed to Zombie Tsunami on August 11, 2012, to avoid a trademark conflict with Taitos Zombie Carnival mobile game.',
       imageUrl:
-            "https://th.bing.com/th/id/R.a22f2b5791c79e17d0d04aac5d9f6aa9?rik=Zq8M212EZTtrkA&riu=http%3a%2f%2fs2.glbimg.com%2fT5oPvSXxmHuKBCLsfYraabNspQY%3d%2f850x446%2fs.glbimg.com%2fpo%2ftt2%2ff%2foriginal%2f201https://gameshunters.com/wp-content/uploads/2015/08/download-Zombie-Tsunami-pc.jpg",
+          "https://th.bing.com/th/id/R.a22f2b5791c79e17d0d04aac5d9f6aa9?rik=Zq8M212EZTtrkA&riu=http%3a%2f%2fs2.glbimg.com%2fT5oPvSXxmHuKBCLsfYraabNspQY%3d%2f850x446%2fs.glbimg.com%2fpo%2ftt2%2ff%2foriginal%2f201https://gameshunters.com/wp-content/uploads/2015/08/download-Zombie-Tsunami-pc.jpg",
       year: 2012,
       genre: 'a side scrolling endless runner game.',
       ratings: ' Metacritic: 87% | 4.4 Stars Playstore. '),
@@ -559,8 +548,7 @@ List<GameModel> gameList = [
           'The game combines elements from collectible card games, tower defense, and multiplayer online battle arena.'
           'is a tower rush video game which puts players in games featuring two or four players (1v1 or 2v2) in which the objective is to destroy more towers than their opponent.'
           'Destruction of the opponents Kings Tower results in an instantaneous win as an automatic three-crown victory.',
-      imageUrl:
-          "https://i.ytimg.com/vi/ulVgKbRZ_Nk/hqdefault.jpg",
+      imageUrl: "https://i.ytimg.com/vi/ulVgKbRZ_Nk/hqdefault.jpg",
       year: 2016,
       genre: 'free-to-play real-time strategy video game',
       ratings: ' Metacritic: 86% | 8.3/10 IGN. '),
@@ -571,10 +559,8 @@ List<GameModel> gameList = [
           'a type of large-scale last man standing deathmatch where players fight to remain the last alive.'
           'Each match starts with players parachuting from a plane onto one of the eight maps which have different sizes and terrain.'
           'Players start with no gear beyond customized clothing selections which do not affect gameplay. Once they land, players can search buildings, ghost towns and other sites to find weapons, vehicles, armor, and other equipment.',
-      imageUrl:
-          "https://pngimg.com/uploads/pubg/pubg_PNG55.png",
+      imageUrl: "https://pngimg.com/uploads/pubg/pubg_PNG55.png",
       year: 2017,
       genre: 'Battle Royale',
       ratings: ' Metacritic: 86% | 6.5/10 IGN. '),
-
 ];

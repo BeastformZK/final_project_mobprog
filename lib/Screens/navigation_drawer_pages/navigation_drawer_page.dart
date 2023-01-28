@@ -29,7 +29,7 @@ class NavigationDrawerPage extends StatelessWidget {
         color: Colors.teal,
         padding: EdgeInsets.only(top: MediaQuery.of(context).padding.top),
         child: Column(
-          /// remove const if applying data
+          // note: remove const if applying data
           children: const [
             CircleAvatar(
               radius: 52,

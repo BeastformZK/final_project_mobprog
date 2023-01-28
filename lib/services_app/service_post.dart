@@ -20,7 +20,7 @@ Future<ApiResponse> getPosts() async {
         apiResponse.data = jsonDecode(response.body)['posts']
             .map((p) => Post.fromJson(p))
             .toList();
-        // we get list of posts, so we need to map each item to post model
+        //get list of posts through mapping to model
         apiResponse.data as List<dynamic>;
         break;
       case 401:
@@ -51,7 +51,7 @@ Future<ApiResponse> createPost(
             ? {'title': title, 'image': image, 'description': description}
             : {'title': title, 'description': description});
 
-    // here if the image is null we just send the body, if not null we send the image too
+    //if the image is null just send the body, if not null send the image
 
     switch (response.statusCode) {
       case 200:

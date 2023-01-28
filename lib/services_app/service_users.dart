@@ -111,8 +111,8 @@ Future<ApiResponse> updateUser(String name, String? image) async {
                 'name': name,
               }
             : {'name': name, 'image': image});
-    // user can update his/her name or name and image
 
+    // user can update his/her name or name and image
     switch (response.statusCode) {
       case 200:
         apiResponse.data = jsonDecode(response.body)['message'];

@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-
 import '../../Models/models_comments.dart';
 import '../../constant_variables/constants.dart';
 import '../../models/api_response.dart';
@@ -13,6 +12,7 @@ class CommentScreen extends StatefulWidget {
   const CommentScreen({super.key, this.postId});
 
   @override
+  // ignore: library_private_types_in_public_api
   _CommentScreenState createState() => _CommentScreenState();
 }
 
@@ -40,6 +40,7 @@ class _CommentScreenState extends State<CommentScreen> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -63,6 +64,7 @@ class _CommentScreenState extends State<CommentScreen> {
       setState(() {
         _loading = false;
       });
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -84,6 +86,7 @@ class _CommentScreenState extends State<CommentScreen> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -102,6 +105,7 @@ class _CommentScreenState extends State<CommentScreen> {
                 (route) => false)
           });
     } else {
+      // ignore: use_build_context_synchronously
       ScaffoldMessenger.of(context)
           .showSnackBar(SnackBar(content: Text('${response.error}')));
     }
@@ -117,8 +121,9 @@ class _CommentScreenState extends State<CommentScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Comments'),
-        backgroundColor: Colors.green,
+        title:
+            const Text('Comments', style: TextStyle(color: Colors.greenAccent)),
+        backgroundColor: Colors.blueGrey[700],
       ),
       body: _loading
           ? const Center(
